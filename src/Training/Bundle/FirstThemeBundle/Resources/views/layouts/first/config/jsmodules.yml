@@ -1,0 +1,3 @@
+dynamic-imports:
+  donationapplicationfrontend:
+    - trainingfirsttheme/js/app/views/donationapplicationformuiux-view

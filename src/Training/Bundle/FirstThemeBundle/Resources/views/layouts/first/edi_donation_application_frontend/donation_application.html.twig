@@ -1,0 +1,358 @@
+{% block _donation_application_info_widget %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+    {% set attr = attr|merge({
+        'data-page-component-view': 'trainingfirsttheme/js/app/views/donationapplicationformuiux-view'
+    }) %}
+
+    <div {{ block('block_attributes') }}>
+    <h1 class="heading blue">Embryo Donor Application - Identifying Information (1/13)</h1>
+    <p style="text-align: justify;">Thank you for considering donating  your embryos to <strong>Embryo Donation International (EDI)</strong>!
+        After the information is entered, the staff of EDI will review it and contact the facility that created your embryos.
+        If we feel that we can find a wonderful home for your embryos, we will contact you and start the process to bring the embryos to our facility. We do our best to accomplish all of this within 10 days of your application!</p>
+    <br>
+
+    <h3 class="blue">Why &quot;Embryo Donation&quot; and NOT &quot;Embryo Adoption&quot;?</h3>
+
+    <p style="text-align: justify;">Adoption refers to the  legal process where a new relationship is created between a parent and a live child.
+        Adoptions can only be granted by the court after the birth of a child. Embryo donation, however, is regulated by the
+        Federal Drug Administration (FDA) and not the courts. While we  at EDI feel your embryos deserve a tremendous
+        amount of respect, assigning personhood to an embryo has tremendous moral, ethical and legal ramifications.
+        For a detailed discussion on this topic, please <a href="#embryo-adoption-or-donation.php" target="_self">click here</a>.</p>
+    <br>
+    <h3 class="blue">General Information</h3>
+    <br>
+    <p style="text-align: justify;">The information you provide on this form will be placed in our Embryo Search database system. Your name will never be released without your expressed permission.
+        Segments of the information will also be loaded onto our Website. <a href="#emb-search.php">Click here</a> if you want to see an example of the embryo donation section of our Website. </p>
+    <br>
+    <br>
+    <hr>
+
+        {% set formAttr = {
+        'id': form.vars.id,
+        'novalidate': 'novalidate',
+    } %}
+
+
+
+    {{ form_start(form, {'attr': formAttr}) }}
+        {{ form_widget(form._token) }}
+    <div class="grid">
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <h3 class="blue">Choose A Charity</h3>
+                <p style="text-align: justify;">By selecting a charity below, we will <a href="donating-to-charity.php" target="_blank" id="donate_details_link">donate to charity</a>.</p>
+                {{ form_widget(form.embCharity)}}
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <h3 class="blue">The Potential for Future Blood Testing</h3>
+                <p style="text-align: justify;">Additional laboratory testing may be requested by the Embryo Recipients including HIV, hepatitis , and inheritable diseases. This blood testing is purely optional , but often encouraged.    </p>
+                {{ form_widget(form.agreeBloodReTest,
+                    { 'id':'agreeBloodReTest','attr': {'class': 'agreeBloodReTest'}}
+                )}}
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <h3 class="blue">Source of Embryos</h3>
+                <p style="text-align: justify;">The information you provide here will remain confidential. These materials            may only be released in their entirety with your written permission. <strong> Those items shaded will not be posted on            the web site.</strong></p>
+                <p style="text-align: justify;">Much of the information requested below will only be seen by the medical staff of Embryo Donation International. Many of the questions  are quite personal and the            answers will not be posted on the Embryo Donation web site.</p>
+                <p style="text-align: justify;">It is understood that some of the embryos were created using donor eggs and            donor sperm. If so, please indicate the following (Check all that apply):</p>
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.embSrcOwn) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.embSrcOwnPi1) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.embSrcDonorEggs) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.embSrcDonorEggsPi1) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.embSrcDonorSperm) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.embSrcDonorSpermPi1) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.embSrcMixture) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.embSrcMixturePi1) }}
+            </div>
+        </div>
+
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <p style="text-align: justify;">We appreciate your honesty in answering the questions listed in this application. Any missing information will require follow-up and significantly delay your posting in any of the databases.</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <h3 class="blue">Donation Process</h3>
+                <p style="text-align: justify;">Please select one of the following donation processes you are interested in. <a href="embryo-donation-general-info.php" target="_blank">Click here</a> for more information on the different types of donation.</p>
+            </div>
+        </div>
+
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <span style="font-weight: 900;">{{ form_widget(form.category[0],
+                        { 'attr': {'class': 'category_type'}})
+                    }}</span>
+                <br>
+                <span>This is the most common form of embryo donation. It is perfect the the donors who are wanting to provide a wonderful gift while desiring closure in donating their embryos. It is ideal for the embryo recipient who wants the least expensive option in receiving embryos. The decision to accept the embryo recipient into the program is the responsibility of EDI\'s clinicians, who have over a quarter century of combined experience in the infertility field. EDI is strongly committed to help match healthy cryopreserved embryos with healthy embryo recipients.</span>
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <span style="font-weight: 900;">{{ form_widget(form.category[1],
+                        { 'attr': {'class': 'category_type'}})
+                    }}</span>
+                <br>
+                <span>This is the second most common form of embryo donation. It is ideal for the donors who want additional information about the recipients. It is ideal for the recipients that are willing to participate in the MHP interview process. EDI still ultimately decides which embryo recipients are emotionally and physically ready to accept donated embryos gathering on their vast experience in the field of embryo donation.</span>
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <span style="font-weight: 900;">{{ form_widget(form.category[2],
+                        { 'attr': {'class': 'category_type'}})
+                    }}</span>
+                <br>
+                <span>This is the least common form of embryo donation. It requires a greater level of participation for both donors and recipients. This is the most expensive form of embryo donation. The donors and recipients will know each other. It is up to the participants themselves how much a relationship they will have after the embryos are transferred. It is uncertain if the Florida state statutes will protect all participants, so legal representation is required and contracts will need to be signed.</span>
+            </div>
+        </div>
+
+        <div id="idp-section" style="display:none;"> <!-- start IDP Section -->
+            <hr>
+
+            <div class="grid__row grid__row--offset-none">
+                <div class="grid__column grid__column--12">
+                    <h3 class="blue">Identity Disclosure Program Option</h3>
+                    <p>From the perspective of a donor-conceived offspring, you can imagine that they would be curious about the embryo donors and may also want to connect with any existing genetic siblings. Embryo donors may also be curious about the donor-conceived offspring. Now, EDI offers you, the embryo donors, the option to direct the disclosure in anonymous and approved embryo donation procedures.<br/><br/>
+                       It is strongly recommended that you <a href="embryo-doner-idp.php" target="_blank">click here</a> and review these options in detail. In summary, the Identity Disclosure Program (IDP) allows for the following:<br/>
+                    <ol style="list-style-type:decimal !important; margin-left:2em;">
+                        <li>You get to decide if you are willing to have the donor-conceived offspring contact you at a later date.</li>
+                        <li>You will decide when you are willing to be contacted by the donor-conceived offspring when the offspring reaches a certain age or older.</li>
+                        <li>You may also decide how the first contact will take place (i.e., phone, email, text, videoconference, in person or other methods of communication).</li>
+                    </ol>
+                    <br/>
+                      Please understand that if you commit to the IDP, the following will take place:<br/>
+                    <ol style="list-style-type:decimal !important; margin-left:2em;">
+                          <li>Once the IDP consents are signed, you will be unable to change your mind regarding future contact. Signing the consents is a commitment on your part to allow your identity to be disclosed and contact to potentially be made.</li>
+                          <li>By agreeing to the IDP, it will still be up to the recipients to disclose to the child that contact is actually possible. If the recipients do not disclose to the donor-conceived offspring their actual genetic origins, you will not be contacted.</li>
+                          <li>Contact from the donor-conceived offspring could take place many years down the road when your life circumstances could be different than they are now.</li>
+                          <li>Your identifying information will be released to the donor-conceived offspring should you not respond to EDI to set up the method of contact or if you fail to contact the donor-conceived offspring within a reasonable period of time after being requested to do so.</li>
+                          <li>Your identifying information will, by default, be made available to the donor-conceived adult when they reach age 18, whether contact did or did not take place in the past.</li>
+                          <li>Many embryo donors have fulfilling, although potentially limited relationships with the donor-conceived offspring and the recipient(s) who raise them. There is no question that the embryo recipients are the parents to the donor-conceived offspring. That stated, the donors and the genetically-related siblings living in the donor&rsquo;s home may play an important role in the health and well-being of the donor-conceived offspring. There may also be true benefits to the embryo donors and the genetically-related siblings by having a relationship with the donor-conceived offspring. Studies are ongoing.</li>
+                          <li>The embryo donors decide the minimal age at which the donor-conceived offspring may initiate contact. There is data to suggest, however, that earlier contact may be better for the well-being of the donor-conceived offspring.</li>
+                      </ol>
+                    </p>
+                </div>
+            </div>
+            <div class="grid__row grid__row--offset-none">
+                <div class="grid__column grid__column--12">
+                    If you need help to work though the decision to participate in the IDP, a skilled Mental Health Professional (MHP) will be found to assist you. Do you need MHP assistance?
+                </div>
+            </div>
+            <div class="grid__row grid__row--offset-none">
+                <div class="grid__column grid__column--12">
+                    {{ form_widget(form.mhpOption,
+                        { 'id':'mhp_option','attr': {'class': 'mhp_option'}}) }}
+                </div>
+            </div>
+            <div id="mhp-donor-section" style="display:none;"> <!-- Start mhp-donor-section -->
+                <div class="grid__row grid__row--offset-none">
+                    <div class="grid__column grid__column--3">
+                        Choose one*
+                    </div>
+                    <div class="grid__column grid__column--9">
+                        {{ form_widget(form.mhpDonorInfo,
+                            { 'id':'mhp_donor_info','attr': {'class': 'mhp_donor_info'}}) }}
+                    </div>
+                </div>
+                <div id="first-donor-section" style="display:none;"> <!-- start first-donor-section -->
+                    <div class="grid__row grid__row--offset-none">
+                        <div class="grid__column grid__column--6">
+                            Name<br>
+                            {{ form_widget(form.donorFirstPartnerName) }}
+                        </div>
+                        <div class="grid__column grid__column--6">
+                            Signature<br>
+                            {{ form_widget(form.donorFirstPartnerSignature) }}
+                        </div>
+                    </div>
+                </div> <!-- end first-donor-section -->
+                <div id="second-donor-section" style="display:none;"> <!-- start second-donor-section -->
+                    <div class="grid__row grid__row--offset-none">
+                        <div class="grid__column grid__column--6">
+                            Name<br>
+                            {{ form_widget(form.donorSecondPartnerName) }}
+                        </div>
+                        <div class="grid__column grid__column--6">
+                            Signature<br>
+                            {{ form_widget(form.donorSecondPartnerSignature) }}
+                        </div>
+                    </div>
+                </div> <!-- end second-donor-section -->
+            </div><!-- End mhp-donor-section -->
+            <div id="idp-participate-section" style="display:none;"> <!-- Start idp-participate-section -->
+                <div class="grid__row grid__row--offset-none">
+                    <div class="grid__column grid__column--6">
+                        Do you want to participate in the Identity Disclosure Program™? *
+                    </div>
+                    <div class="grid__column grid__column--6">
+                        {{ form_widget(form.ptpIdpOption,
+                            { 'id':'ptp_idp_option','attr': {'class': 'ptp_idp_option'}})
+                        }}
+                    </div>
+                </div>
+                <div id="id-info-when-section" style="display:none;"><!-- Start id-info-when-section -->
+                    <div class="grid__row grid__row--offset-none">
+                        <div class="grid__column grid__column--12">
+                            You have chosen to participate in the Identity Disclosure Program * . You must next decide when the donor-conceived offspring or the recipients may have access to your identifying information.
+                            Identifying information will be provided when *
+                        </div>
+                    </div>
+                    <div class="grid__row grid__row--offset-none">
+                        <div class="grid__column grid__column--4">
+                            {{ form_widget(form.idInfoWhen) }}
+                        </div>
+                    </div>
+                </div><!-- End id-info-when-section -->
+            </div> <!-- end idp-participate-section -->
+
+        </div> <!-- end IDP Section -->
+
+        <hr>
+
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <h3 class="blue">Preliminary Embryo Information</h3>
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                When were they created?
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.embryosWhenCreated)}}
+             </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--4">
+                What IVF facility were they created
+            </div>
+            <div class="grid__column grid__column--4">
+                Name {{ form_widget(form.embryosWereTheyCreatedName) }}
+            </div>
+            <div class="grid__column grid__column--4">
+                Location {{ form_widget(form.embryosWereTheyCreatedLocation) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                Is there more than one storage facility that currently has your embryos?
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.embryosMultipleStorageFacilities,
+                    { 'id':'embryos_multiple_storage_facilities','attr': {'class': 'embryos_multiple_storage_facilities'}})
+                }}
+            </div>
+        </div>
+        <div id="embryo-more-than-one-section" style="display:none;"><!-- Start embryo-more-than-one-section -->
+            <div class="grid__row grid__row--offset-none">
+                <div class="grid__column grid__column--4">
+                    What IVF facility were they created
+                </div>
+                <div class="grid__column grid__column--4">
+                    Name {{ form_widget(form.embryosWereTheyCreatedName1) }}
+                </div>
+                <div class="grid__column grid__column--4">
+                    Location {{ form_widget(form.embryosWereTheyCreatedLocation1) }}
+                </div>
+            </div>
+        </div> <!-- end embryo-more-than-one-section -->
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                Where are they currently being stored? *
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.embryosWhereStored)}}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                How many are currently stored? *
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.embryosHowManyStored)}}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                Are there any residual storage fees currently? *
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.embryosResidualStorageFees) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <br/>
+                <p style="text-align: justify;">In order for us to review the information about your embryos, please download, complete and fax/mail to the facility where the embryos were originally created so EDI can contact them.
+                    <strong>If the cryopreserved embryos have been moved to more than one facility, EDI will need releases for each facility that had contact with them.</strong>
+                    <br/><br/>
+                    <a href="/downloads/Consent for Transfer to and Acceptance by EDI of Cryopreserved Donated Embryos, EDI.pdf" target="_blank">Consent for Transfer to and Acceptance by EDI of Cryopreserved Donated Embryos</a><br/>
+
+                    <a href="/downloads/Release of Records From EDI.pdf" target="_blank">Release of Records to EDI</a>
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <h3 class="blue">Limiting Stipulations/Recipient Characteristics </h3>
+                <p>You are free to make specific stipulations regarding what type of patient(s) you feel comfortable donating to. Please select all that you <b>AGREE</b> to</p>
+
+            </div>
+        </div>
+        {{ dump(form) }}
+        {% block _donation_application_stipulation_marital_widget %} {% endblock %}
+        {% block _donation_application_stipulation_race_widget %} {% endblock %}
+        {% block _donation_application_stipulation_religion_widget %} {% endblock %}
+        {% block _donation_application_stipulation_education_widget %} {% endblock %}
+        {% block _donation_application_stipulation_location_widget %} {% endblock %}
+        {# % block _donation_application_stipulation_other_widget %} {% endblock % }
+        {% endblock %#}
+        {% block _nav_buttons_widget %}{% endblock %}
+        {{ form_end(form, {'render_rest': false}) }}
+    {{ oro_form_js_validation(form, js_validation_options|default({})) }}
+    </div>
+    </div>
+
+{% endblock %}
+
+

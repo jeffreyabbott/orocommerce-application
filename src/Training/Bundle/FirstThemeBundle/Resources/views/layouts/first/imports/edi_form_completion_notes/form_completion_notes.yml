@@ -1,0 +1,13 @@
+layout:
+  imports:
+    -
+      id: edi_form_completion_notes_info
+      root: edi_form_completion_notes_container
+      namespace: form_completion_notes
+  actions:
+    - '@setBlockTheme':
+        themes: 'form_completion_notes.html.twig'
+    - '@add':
+        id: edi_form_completion_notes_container
+        parentId: page_content
+        blockType: container

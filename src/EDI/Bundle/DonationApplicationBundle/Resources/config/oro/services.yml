@@ -1,0 +1,38 @@
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  # makes classes in src/ available to be used as services
+  # this creates a service per class whose id is the fully-qualified class name
+  EDI\Bridge\DonationApplicationBundle\:
+    resource: '../../*'
+    exclude: '../../{Entity,Migrations,Tests}'
+
+  EDI\Bridge\DonationApplicationBundle\Controller\:
+    resource: '../../Controller'
+    tags: [ 'controller.service_arguments' ]
+
+  EDI\Bundle\DonationApplicationBundle\Repository\EmbPicturesRepository:
+    resource: '../../Repository/EmbPicturesRepository'
+    autowire: true
+
+  EDI\Bundle\DonationApplicationBundle\Service\PicturesHelper:
+    resource: '../../Service/PicturesHelper'
+    autowire: true
+
+  EDI\Bundle\DonationApplicationBundle\Service\UploaderHelper:
+    resource: '../../Service/UploaderHelper'
+    autowire: true
+
+  EDI\Bridge\DonationApplicationBundle\Service\StipulationsGroupHelper:
+    resource: '../../Service/StipulationsGroupsHelper'
+    autowire: true
+
+  EDI\Bundle\DonationApplicationBundle\Form\Transformer\ChoiceToStringTransformer:
+    resource: '../../Form/Transformer/ChoiceToStringTransformer'
+    autowire: true
+
+Symfony\Component\Asset\Context\RequestStackContext: '@assets.context'
+

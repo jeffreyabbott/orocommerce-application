@@ -1,0 +1,310 @@
+.
+├── Bridge
+│   └── DonationApplication
+│       ├── ContentWidget
+│       │   └── ContactUsFormContentWidgetType.php
+│       ├── Controller
+│       │   └── ContactRequestController.php
+│       ├── DependencyInjection
+│       │   ├── Configuration.php
+│       │   └── OroContactUsBridgeExtension.php
+│       ├── EventListener
+│       │   ├── ContactRequestDatagridListener.php
+│       │   ├── ContactRequestViewListener.php
+│       │   ├── DeclinedConsentsEventListener.php
+│       │   └── SystemConfigListener.php
+│       ├── Form
+│       │   └── Type
+│       │       └── ContactRequestType.php
+│       ├── Helper
+│       │   └── ContactRequestHelper.php
+│       ├── Migrations
+│       │   ├── Data
+│       │   │   └── ORM
+│       │   │       ├── LoadContactReasonData.php
+│       │   │       └── LoadContactUsFormContentWidgetData.php
+│       │   └── Schema
+│       │       ├── v1_0
+│       │       │   └── OroContactUsBridgeBundle.php
+│       │       ├── v1_1
+│       │       │   └── OroContactUsBridgeBundle.php
+│       │       └── OroContactUsBridgeBundleInstaller.php
+│       ├── Resources
+│       │   ├── config
+│       │   │   ├── oro
+│       │   │   │   ├── bundles.yml
+│       │   │   │   ├── features.yml
+│       │   │   │   ├── navigation.yml
+│       │   │   │   ├── routing.yml
+│       │   │   │   └── system_configuration.yml
+│       │   │   └── services.yml
+│       │   ├── public
+│       │   │   └── default
+│       │   │       └── scss
+│       │   │           ├── components
+│       │   │           │   ├── contact-us-form
+│       │   │           │   │   └── contact-us-form.scss
+│       │   │           │   └── contact-us-form-actions
+│       │   │           │       └── contact-us-form-actions.scss
+│       │   │           └── styles.scss
+│       │   ├── translations
+│       │   │   └── messages.en.yml
+│       │   └── views
+│       │       ├── ContactRequest
+│       │       │   └── customerUser.html.twig
+│       │       ├── ContactUsFormContentWidget
+│       │       │   └── widget.html.twig
+│       │       ├── layouts
+│       │       │   ├── blank
+│       │       │   │   ├── oro_contactus_bridge_contact_us_page
+│       │       │   │   │   └── layout.yml
+│       │       │   │   ├── contact_us_form.html.twig
+│       │       │   │   └── contact_us_form.yml
+│       │       │   └── default
+│       │       │       └── config
+│       │       │           └── assets.yml
+│       │       └── validation.html.twig
+│       ├── Tests
+│       │   ├── Behat
+│       │   │   ├── Features
+│       │   │   │   ├── Fixtures
+│       │   │   │   │   └── CustomerUserFixture.yml
+│       │   │   │   ├── contact_requests_activities.feature
+│       │   │   │   ├── contact_us_page_fill_form.feature
+│       │   │   │   ├── contact_us_widget.feature
+│       │   │   │   ├── send_notifications_on_removing_consents.feature
+│       │   │   │   └── switch_off_contact_us_page.feature
+│       │   │   └── behat.yml
+│       │   └── Unit
+│       │       ├── ContentWidget
+│       │       │   └── ContactUsFormContentWidgetTypeTest.php
+│       │       ├── DependencyInjection
+│       │       │   ├── ConfigurationTest.php
+│       │       │   └── OroContactUsBridgeExtensionTest.php
+│       │       ├── EventListener
+│       │       │   ├── ContactRequestDatagridListenerTest.php
+│       │       │   ├── ContactRequestViewListenerTest.php
+│       │       │   ├── DeclinedConsentsEventListenerTest.php
+│       │       │   └── SystemConfigListenerTest.php
+│       │       ├── Form
+│       │       │   └── Type
+│       │       │       └── ContactRequestTypeTest.php
+│       │       ├── Helper
+│       │       │   └── ContactRequestHelperTest.php
+│       │       └── Stub
+│       │           └── ContactRequestStub.php
+│       ├── OroContactUsBridgeBundle.php
+│       └── README.md
+├── Bundle
+│   ├── DonationApplicationBundle
+│   │   ├── Autocomplete
+│   │   │   └── ContactReasonSearchHandler.php
+│   │   ├── Controller
+│   │   │   ├── Api
+│   │   │   │   └── Rest
+│   │   │   │       └── ContactRequestController.php
+│   │   │   ├── ContactReasonController.php
+│   │   │   └── ContactRequestController.php
+│   │   ├── DependencyInjection
+│   │   │   └── OroContactUsExtension.php
+│   │   ├── Entity
+│   │   │   ├── Repository
+│   │   │   │   └── ContactReasonRepository.php
+│   │   │   ├── AbstractContactRequest.php
+│   │   │   ├── ContactReason.php
+│   │   │   └── ContactRequest.php
+│   │   ├── Form
+│   │   │   ├── Handler
+│   │   │   │   └── ContactRequestHandler.php
+│   │   │   └── Type
+│   │   │       ├── ContactReasonSelectType.php
+│   │   │       ├── ContactReasonType.php
+│   │   │       ├── ContactRequestEditType.php
+│   │   │       └── ContactRequestType.php
+│   │   ├── Migrations
+│   │   │   ├── Data
+│   │   │   │   └── ORM
+│   │   │   │       ├── data
+│   │   │   │       │   ├── emails
+│   │   │   │       │   │   └── contact_request
+│   │   │   │       │   │       └── created.html.twig
+│   │   │   │       │   └── workflows.yml
+│   │   │   │       ├── DefaultChannelData.php
+│   │   │   │       ├── LoadContactReasonData.php
+│   │   │   │       ├── LoadEmailTemplates.php
+│   │   │   │       ├── LoadWorkflowAclData.php
+│   │   │   │       ├── LoadWorkflowData.php
+│   │   │   │       └── UpdateContactRequestWithOrganization.php
+│   │   │   └── Schema
+│   │   │       ├── v1_0
+│   │   │       │   └── OroContactUsBundle.php
+│   │   │       ├── v1_1
+│   │   │       │   └── OroContactUsBundle.php
+│   │   │       ├── v1_10
+│   │   │       │   ├── CreateActivityAssociation.php
+│   │   │       │   └── FillActivityAssociationTables.php
+│   │   │       ├── v1_11
+│   │   │       │   └── RemoveWorkflowFields.php
+│   │   │       ├── v1_12
+│   │   │       │   └── UpdatePreferredContactMethod.php
+│   │   │       ├── v1_13
+│   │   │       │   └── DropChannelFieldBundle.php
+│   │   │       ├── v1_14
+│   │   │       │   └── UpdateIndexes.php
+│   │   │       ├── v1_15
+│   │   │       │   └── RemoveOldData.php
+│   │   │       ├── v1_16
+│   │   │       │   └── OroContactUsBundle.php
+│   │   │       ├── v1_17
+│   │   │       │   └── UpdateIndexes.php
+│   │   │       ├── v1_18
+│   │   │       │   └── MakeLabelLocalizableMigration.php
+│   │   │       ├── v1_2
+│   │   │       │   └── OroContactUsBundle.php
+│   │   │       ├── v1_3
+│   │   │       │   └── OroContactUsBundle.php
+│   │   │       ├── v1_4
+│   │   │       │   └── OroContactUsBundle.php
+│   │   │       ├── v1_5
+│   │   │       │   └── OroContactUsBundle.php
+│   │   │       ├── v1_6
+│   │   │       │   └── OroContactUsBundle.php
+│   │   │       ├── v1_7
+│   │   │       │   └── OroContactUsBundle.php
+│   │   │       ├── v1_8
+│   │   │       │   └── DropFieldConfig.php
+│   │   │       ├── v1_9
+│   │   │       │   └── UpdateCreatedUpdatedLabels.php
+│   │   │       └── OroContactUsBundleInstaller.php
+│   │   ├── Model
+│   │   │   ├── ExtendContactReason.php
+│   │   │   └── ExtendContactRequest.php
+│   │   ├── Provider
+│   │   │   └── AbstractContactRequestPhoneProvider.php
+│   │   ├── Resources
+│   │   │   ├── config
+│   │   │   │   ├── oro
+│   │   │   │   │   ├── api.yml
+│   │   │   │   │   ├── app.yml
+│   │   │   │   │   ├── bundles.yml
+│   │   │   │   │   ├── datagrids.yml
+│   │   │   │   │   ├── navigation.yml
+│   │   │   │   │   ├── routing.yml
+│   │   │   │   │   ├── routing_api.yml
+│   │   │   │   │   ├── search.yml
+│   │   │   │   │   └── workflows.yml
+│   │   │   │   ├── controllers.yml
+│   │   │   │   ├── jsmodules.yml
+│   │   │   │   ├── services.yml
+│   │   │   │   └── validation.yml
+│   │   │   ├── public
+│   │   │   │   └── js
+│   │   │   │       ├── app
+│   │   │   │       │   └── modules
+│   │   │   │       │       └── validator-constraints-module.js
+│   │   │   │       └── validator
+│   │   │   │           └── contact-request-callback.js
+│   │   │   ├── translations
+│   │   │   │   ├── messages.en.yml
+│   │   │   │   └── workflows.en.yml
+│   │   │   └── views
+│   │   │       ├── ContactReason
+│   │   │       │   ├── index.html.twig
+│   │   │       │   └── update.html.twig
+│   │   │       ├── ContactRequest
+│   │   │       │   ├── widget
+│   │   │       │   │   └── info.html.twig
+│   │   │       │   ├── index.html.twig
+│   │   │       │   ├── update.html.twig
+│   │   │       │   └── view.html.twig
+│   │   │       ├── Search
+│   │   │       │   └── result.html.twig
+│   │   │       ├── layouts
+│   │   │       │   ├── blank
+│   │   │       │   │   └── config
+│   │   │       │   │       └── jsmodules.yml
+│   │   │       │   └── embedded_default
+│   │   │       │       └── oro_embedded_form_submit
+│   │   │       │           ├── default.yml
+│   │   │       │           └── form.html.twig
+│   │   │       └── fields.html.twig
+│   │   ├── Tests
+│   │   │   ├── Behat
+│   │   │   │   ├── Features
+│   │   │   │   │   ├── Fixtures
+│   │   │   │   │   │   └── 3-contact-requests.yml
+│   │   │   │   │   ├── checks_that_default_success_message_and_css_are_shown.feature
+│   │   │   │   │   ├── contact_reasons.feature
+│   │   │   │   │   ├── email_notification_to_any_email_field.feature
+│   │   │   │   │   └── workflow_orocrm_contact_us_contact_request.feature
+│   │   │   │   └── behat.yml
+│   │   │   ├── Functional
+│   │   │   │   ├── Entity
+│   │   │   │   │   └── ContactReasonTest.php
+│   │   │   │   ├── Fixtures
+│   │   │   │   │   └── LoadContactUsBundleFixtures.php
+│   │   │   │   └── Grid
+│   │   │   │       └── ContactRequestsGridTest.php
+│   │   │   └── Unit
+│   │   │       ├── Autocomplete
+│   │   │       │   └── ContactReasonSearchHandlerTest.php
+│   │   │       ├── Entity
+│   │   │       │   └── ContactRequestTest.php
+│   │   │       ├── Form
+│   │   │       │   ├── Handler
+│   │   │       │   │   └── ContactRequestHandlerTest.php
+│   │   │       │   └── Type
+│   │   │       │       ├── ContactReasonSelectTypeTest.php
+│   │   │       │       └── ContactRequestTypeTest.php
+│   │   │       ├── Stub
+│   │   │       │   └── ContactReasonStub.php
+│   │   │       └── Validator
+│   │   │           └── ContactRequestCallbackValidatorTest.php
+│   │   ├── Validator
+│   │   │   └── ContactRequestCallbackValidator.php
+│   │   ├── OroContactUsBundle.php
+│   │   └── README.md
+│   └── DonationApplicationLegacyBundle
+│       ├── Controller
+│       │   └── DonationApplicationController.php
+│       ├── DependencyInjection
+│       │   ├── Configuration.php
+│       │   └── DonationApplicationExtension.php
+│       ├── Entity
+│       │   ├── EmbApplication.php
+│       │   ├── EmbContactInfo.php
+│       │   ├── EmbFavorite.php
+│       │   ├── EmbHusbEduHistory.php
+│       │   ├── EmbHusbFamHist.php
+│       │   ├── EmbHusbMedHist.php
+│       │   ├── EmbHusbPhysChar.php
+│       │   ├── EmbHusbSocialHistory.php
+│       │   ├── EmbPicture.php
+│       │   ├── EmbQuality.php
+│       │   ├── EmbRecipient.php
+│       │   ├── EmbStipulation.php
+│       │   ├── EmbWifeEduHistory.php
+│       │   ├── EmbWifeFamHist.php
+│       │   ├── EmbWifeMedHist.php
+│       │   ├── EmbWifeOgHist.php
+│       │   ├── EmbWifePhysChar.php
+│       │   └── EmbWifeSocialHistory.php
+│       ├── Form
+│       │   └── Type
+│       │       └── DonationApplicationType.php
+│       ├── Migrations
+│       ├── Resources
+│       │   ├── config
+│       │   │   ├── oro
+│       │   │   │   ├── bundles.yml
+│       │   │   │   ├── datagrids.yml
+│       │   │   │   └── routing.yml
+│       │   │   └── form.yml
+│       │   └── views
+│       │       └── EmbApplication
+│       │           ├── index.html.twig
+│       │           └── update.html.twig
+│       └── DonationApplicationBundle.php
+└── EDI.pdf
+
+133 directories, 174 files

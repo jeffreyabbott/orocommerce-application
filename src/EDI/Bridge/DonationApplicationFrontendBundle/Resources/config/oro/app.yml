@@ -1,0 +1,5 @@
+knp_gaufrette:
+  filesystems:
+    emb_pictures:
+      adapter: public # the type of storage (public or private)
+      alias: emb_pictures_filesystem

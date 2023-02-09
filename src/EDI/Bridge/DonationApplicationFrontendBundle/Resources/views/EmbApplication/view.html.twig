@@ -1,0 +1,59 @@
+{% extends 'OroUIBundle:actions:view.html.twig' %}
+{% import 'OroUIBundle::macros.html.twig' as UI %}
+
+{% block navButtons %}
+    {% if is_granted('EDIT', entity) %}
+        {{ UI.editButton({
+            'path' : path('donation.application_update', { id: entity.id }),
+            'entity_label': 'entity'|trans
+        }) }}
+    {% endif %}
+
+    {% if 0 and is_granted('DELETE', entity) %}
+        {{ UI.deleteButton({
+            'dataUrl': path('donation.application_delete', {'id': entity.id}),
+            'dataRedirect': path('donation.application_index'),
+            'aCss': 'no-hash remove-button',
+            'id': 'btn-remove-application',
+            'dataId': entity.id,
+            'entity_label': 'Donation Application'|trans,
+        }) }}
+    {% endif %}
+{% endblock navButtons %}
+
+{% block pageHeader %}
+    {% set breadcrumbs = {
+        'entity':      entity,
+        'indexPath':   path('donation.application_index'),
+        'indexLabel': 'Donation Applicaitons'|trans,
+        'entityTitle': entity.embNumber
+    } %}
+    {{ parent() }}
+{% endblock pageHeader %}
+
+{% block content_data %}
+    {% set data %}
+        <div class="widget-content">
+            <div class="row-fluid form-horizontal">
+                <div class="responsive-block">
+                    {{ UI.renderProperty('Id'|trans, entity.id) }}
+                    {{ UI.renderProperty('Emb Number'|trans, entity.embNumber) }}
+                    {{ UI.renderProperty('Date Created'|trans, entity.datetimeCreated|date) }}
+                </div>
+            </div>
+        </div>
+    {% endset %}
+    {% set dataBlocks = [
+        {
+            'title': 'Data'|trans,
+            'class': 'active',
+            'subblocks': [
+            { 'data' : [data] }
+        ]
+        }
+    ] %}
+
+    {% set id = 'donationApplicationView' %}
+    {% set data = { 'dataBlocks': dataBlocks } %}
+    {{ parent() }}
+{% endblock content_data %}

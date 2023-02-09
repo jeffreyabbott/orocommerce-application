@@ -1,0 +1,111 @@
+edi_donation_application_frontend:
+  resource:     "@DonationApplicationFrontendBundle/Controller/DonationApplicationEmbApplicationController.php"
+  type:         annotation
+  prefix:       /donation/emb_application
+  trailing_slash_on_root: false
+  options:
+    frontend: true
+
+edi_donation_pictures_frontend:
+  resource:     "@DonationApplicationFrontendBundle/Controller/DonationApplicationEmbPictureController.php"
+  type:         annotation
+  prefix:       /donation/emb_pictures
+  trailing_slash_on_root: false
+  options:
+    frontend: true
+
+edi_donation_physchar_wife_frontend:
+  resource:     "@DonationApplicationFrontendBundle/Controller/DonationApplicationEmbWifePhysCharController.php"
+  type:         annotation
+  prefix:       /donation/emb_wife_physchar
+  trailing_slash_on_root: false
+  options:
+    frontend: true
+
+edi_donation_physchar_husb_frontend:
+  resource:     "@DonationApplicationFrontendBundle/Controller/DonationApplicationEmbHusbPhysCharController.php"
+  type:         annotation
+  prefix:       /donation/emb_husb_physchar
+  trailing_slash_on_root: false
+  options:
+    frontend: true
+
+edi_donation_medhist_wife_frontend:
+  resource:     "@DonationApplicationFrontendBundle/Controller/DonationApplicationEmbWifeMedHistController.php"
+  type:         annotation
+  prefix:       /donation/emb_wife_medhist
+  trailing_slash_on_root: false
+  options:
+    frontend: true
+
+edi_donation_medhist_husb_frontend:
+  resource:     "@DonationApplicationFrontendBundle/Controller/DonationApplicationEmbHusbMedHistController.php"
+  type:         annotation
+  prefix:       /donation/emb_husb_medhist
+  trailing_slash_on_root: false
+  options:
+    frontend: true
+
+edi_donation_oghist_wife_frontend:
+  resource:     "@DonationApplicationFrontendBundle/Controller/DonationApplicationEmbWifeOgHistController.php"
+  type:         annotation
+  prefix:       /donation/emb_wife_oghist
+  trailing_slash_on_root: false
+  options:
+    frontend: true
+
+edi_donation_famhist_wife_frontend:
+  resource:     "@DonationApplicationFrontendBundle/Controller/DonationApplicationEmbWifeFamHistController.php"
+  type:         annotation
+  prefix:       /donation/emb_wife_famhist
+  trailing_slash_on_root: false
+  options:
+    frontend: true
+
+edi_donation_famhist_husb_frontend:
+  resource:     "@DonationApplicationFrontendBundle/Controller/DonationApplicationEmbHusbFamHistController.php"
+  type:         annotation
+  prefix:       /donation/emb_husb_famhist
+  trailing_slash_on_root: false
+  options:
+    frontend: true
+
+edi_donation_socialeduhist_wife_frontend:
+  resource:     "@DonationApplicationFrontendBundle/Controller/DonationApplicationEmbWifeSocialEduHistController.php"
+  type:         annotation
+  prefix:       /donation/emb_wife_socialeduhist
+  trailing_slash_on_root: false
+  options:
+    frontend: true
+
+edi_donation_socialeduhist_husb_frontend:
+  resource:     "@DonationApplicationFrontendBundle/Controller/DonationApplicationEmbHusbSocialEduHistController.php"
+  type:         annotation
+  prefix:       /donation/emb_husb_socialeduhist
+  trailing_slash_on_root: false
+  options:
+    frontend: true
+
+edi_donation_contact_info_frontend:
+  resource: "@DonationApplicationFrontendBundle/Controller/DonationApplicationEmbContactInfoController.php"
+  type: annotation
+  prefix: /donation/emb_contact_info
+  trailing_slash_on_root: false
+  options:
+    frontend: true
+
+edi_donation_essay_signature_frontend:
+  resource: "@DonationApplicationFrontendBundle/Controller/DonationApplicationEmbApplicationEssaySignatureController.php"
+  type: annotation
+  prefix: /donation/emb_essay_signature
+  trailing_slash_on_root: false
+  options:
+    frontend: true
+
+edi_donation_application_customer_user_registration:
+  resource:     "@DonationApplicationFrontendBundle/Controller/DonationApplicationCustomerUserRegisterController.php"
+  type:         annotation
+  prefix:       /donation/user
+  trailing_slash_on_root: false
+  options:
+    frontend: true

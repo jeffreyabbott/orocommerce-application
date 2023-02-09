@@ -1,0 +1,6 @@
+bundles:
+  - EDI\Bridge\DonationApplicationFrontendBundle\DonationApplicationFrontendBundle
+  - Liip\ImagineBundle\LiipImagineBundle
+  - Oneup\FlysystemBundle\OneupFlysystemBundle
+
+

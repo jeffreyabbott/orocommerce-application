@@ -1,0 +1,105 @@
+{% block _donation_essay_signature_info_widget %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+
+    <h1 class="heading blue">Essay Section/Submit Application (13/13)</h1>
+    {% set attr = attr|merge({
+        'data-page-component-view': 'trainingfirsttheme/js/app/views/donationapplicationformuiux-view'
+    }) %}
+    <div {{ block('block_attributes') }}>
+    {% set formAttr = {
+        'id': form.vars.id,
+        'novalidate': 'novalidate',
+    } %}
+
+    {% set fieldAttr = {
+        "data-validation": {
+            "Oro\\Bundle\\ContactUsBundle\\Validator\\ContactRequestCallbackValidator": {
+                "target": "preferredContactMethod",
+                "deps": {
+                    "oro.contactus.contactrequest.method.both": ["emailAddress", "phone"],
+                    "oro.contactus.contactrequest.method.phone": "phone",
+                    "oro.contactus.contactrequest.method.email": "emailAddress"
+                }
+            }
+        }|json_encode
+    } %}
+    {{ form_start(form, {'attr': formAttr}) }}
+        {{ form_widget(form._token) }}
+    {{ form_widget(form.id) }}
+    {% block _edi_form_required_field_notes_info_widget %}
+        {# Fix this so it's pulled from the TWIG, but need to move on #}
+        <p style="padding: 10px; background-color: White; border: solid 1px #ACDAF1; margin:10px 0;">Field names followed by <span class="required-field"> * </span> indicate that input is required</p>
+    {% endblock %}
+    <div class="grid">
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <hr>
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                <h3 class="blue">Essay Section</h3>
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                {{ form_label(form.sayToRecipient) }}
+            </div>
+        </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.sayToRecipient) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <hr>
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                <h3 class="blue">Completion of Application</h3>
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.signedNameHusband) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.signedNameHusband) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.signedNameWife) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.signedNameWife) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.signedDate) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.signedDate) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.informationTrueAccurate) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <hr>
+            </div>
+        </div>
+    {% block _nav_buttons_widget %}{% endblock %}
+    {{ form_end(form, {'render_rest': false}) }}
+    {{ oro_form_js_validation(form, js_validation_options|default({})) }}
+    </div>
+
+
+{% endblock %}

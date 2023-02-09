@@ -1,0 +1,15 @@
+{% block _donation_application_stipulation_education_widget %}
+    <div class="grid__row grid__row--offset-none">
+        <div class="grid__column grid__column--12">
+            <h2>Education Level:</h2>
+            <div class="row">Please indicate what level of education you want at least one of your embryo recipient(s) should have accomplished.</div>
+        </div>
+    </div>
+    {# Education Section #}
+    {% if form.education_stipulation.stipulationType.vars.value==constant('EDI\\Bundle\\DonationApplicationBundle\\Entity\\EDIConstants::STIPULATION_TYPE_EDUCATION') %}
+        {{ form_widget(form.education_stipulation.stipulation) }}
+        {{ form_widget(form.education_stipulation.stipulationType) }}
+        {{ form_widget(form.education_stipulation.id) }}
+    {% endif %}
+
+{% endblock %}

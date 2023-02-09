@@ -1,0 +1,13 @@
+services:
+  edi_donation_application_frontend:
+    class: EDI\Bundle\DonationApplicationBundle\Form\Type\DonationApplicationType
+    tags:
+      - { name: form.type, alias: donation_application }
+  donation_application.form.type.emb_pictures:
+    class: EDI\Bundle\DonationApplicationBundle\Form\Type\DonationApplicationPicturesType
+    tags:
+      - { name: form.type, alias: donation_pictures }
+  donation_application.form.type.emb_wifephyschar:
+    class: EDI\Bundle\DonationApplicationBundle\Form\Type\DonationApplicationWifePhysCharType
+    tags:
+      - { name: form.type, alias: donation_wife_physchar }

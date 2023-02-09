@@ -1,0 +1,20 @@
+layout:
+  imports:
+#    - id: edi_forms
+#      root: donation_application_info
+  actions:
+    - '@setBlockTheme':
+        themes: ['donation_application.html.twig','../edi_forms/nav_buttons.html.twig']
+    - '@add':
+        id: donation_application_info
+        parentId: page_content
+        siblingId: page_content_title
+        blockType: form_fields
+        options:
+          form: '=data["donation_application_form"]'
+    - '@add':
+        id: nav_buttons
+        parentId: donation_application_info
+        blockType: form_fields
+        options:
+          form: '=data["donation_application_form"]'

@@ -1,0 +1,24 @@
+layout:
+  actions:
+    - '@setBlockTheme':
+        themes: ['../edi_donation_application_frontend/donation_application.html.twig',
+                 '../edi_donation_application_frontend/donation_application_stipulation_education.html.twig',
+                 '../edi_donation_application_frontend/donation_application_stipulation_location.html.twig',
+                 '../edi_donation_application_frontend/donation_application_stipulation_marital.html.twig',
+                 '../edi_donation_application_frontend/donation_application_stipulation_other.html.twig',
+                 '../edi_donation_application_frontend/donation_application_stipulation_race.html.twig',
+                 '../edi_donation_application_frontend/donation_application_stipulation_religion.html.twig',
+                 '../edi_forms/nav_buttons.html.twig']
+    - '@add':
+        id: donation_application_info
+        parentId: page_content
+        siblingId: page_content_title
+        blockType: form_fields
+        options:
+          form: '=data["donation_application_form"]'
+    - '@add':
+        id: nav_buttons
+        parentId: donation_application_info
+        blockType: form_fields
+        options:
+          form: '=data["donation_application_form"]'

@@ -1,0 +1,11 @@
+services:
+    edi_oro_customer.form.type.frontend.customer_user.register:
+        class: 'EDI\Bridge\DonationApplicationFrontendBundle\Form\Type\FrontendCustomerUserRegistrationType'
+        arguments:
+            - '@oro_config.manager'
+            - '@doctrine'
+        calls:
+            - [setDataClass, ['Oro\Bundle\CustomerBundle\Entity\CustomerUser']]
+        tags:
+    #    - { name: form.type, alias: oro_customer_frontend_customer_user_register }
+            - { name: form.type, alias: edi_oro_customer_frontend_customer_user_register }

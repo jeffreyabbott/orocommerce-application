@@ -1,0 +1,86 @@
+edi_donation_application:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbApplicationController.php"
+  type: annotation
+  prefix: /donation_application
+  trailing_slash_on_root: false
+
+edi_donation_application_contactinfo:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbContactInfoController.php"
+  type: annotation
+  prefix: /donation_application_contactinfo
+
+edi_donation_application_favorite:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbFavoriteController.php"
+  type: annotation
+  prefix: /donation_application_favorite
+
+edi_donation_application_husbeduhistory:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbHusbEduHistoryController.php"
+  type: annotation
+  prefix: /donation_application_husbeduhistory
+
+edi_donation_application_husbfamhist:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbHusbFamHistController.php"
+  type: annotation
+  prefix: /donation_application_husbfamhist
+
+edi_donation_application_husbmedhist:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbHusbMedHistController.php"
+  type: annotation
+  prefix: /donation_application_husbmedhist
+
+edi_donation_application_husbphyschar:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbHusbPhysCharController.php"
+  type: annotation
+  prefix: /donation_application_husbphyschar
+
+edi_donation_application_husbsocialhistory:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbHusbSocialHistoryController.php"
+  type: annotation
+  prefix: /donation_application_husbsocialhistory
+
+edi_donation_application_picture:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbPictureController.php"
+  type: annotation
+  prefix: /donation_application_picture
+
+edi_donation_application_quality:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbQualityController.php"
+  type: annotation
+  prefix: /donation_application_quality
+
+edi_donation_application_recipient:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbRecipientController.php"
+  type: annotation
+  prefix: /donation_application_recipient
+
+edi_donation_application_stipulation:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbStipulationController.php"
+  type: annotation
+  prefix: /donation_application_stipulation
+
+edi_donation_application_wifeeduhistory:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbWifeEduHistoryController.php"
+  type: annotation
+  prefix: /donation_application_wifeeduhistory
+
+edi_donation_application_wifefamhist:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbWifeFamHistController.php"
+  type: annotation
+  prefix: /donation_application_wifefamhist
+
+edi_donation_application_wifemedhist:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbWifeMedHistController.php"
+  type: annotation
+  prefix: /donation_application_wifemedhist
+
+edi_donation_application_wifephyschar:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbWifePhysCharController.php"
+  type: annotation
+  prefix: /donation_application_wifephyschar
+
+edi_donation_application_wifesocialhistory:
+  resource: "@DonationApplicationBundle/Controller/DonationApplicationEmbWifeSocialHistoryController.php"
+  type: annotation
+  prefix: /donation_application_wifesocialhistory
+

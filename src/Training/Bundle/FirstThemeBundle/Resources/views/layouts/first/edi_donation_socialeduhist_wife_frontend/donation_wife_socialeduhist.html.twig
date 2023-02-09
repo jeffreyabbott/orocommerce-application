@@ -1,0 +1,126 @@
+{% block _donation_wife_socialeduhist_info_widget %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+
+    <h1 class="heading blue">Wife/Egg Donor Educational and Social History (8/13)</h1>
+    {% set attr = attr|merge({
+        'data-page-component-view': 'trainingfirsttheme/js/app/views/donationapplicationformuiux-view'
+    }) %}
+
+    {% set formAttr = {
+        'id': form.vars.id,
+        'novalidate': 'novalidate',
+    } %}
+
+    {% set fieldAttr = {
+        "data-validation": {
+            "Oro\\Bundle\\ContactUsBundle\\Validator\\ContactRequestCallbackValidator": {
+                "target": "preferredContactMethod",
+                "deps": {
+                    "oro.contactus.contactrequest.method.both": ["emailAddress", "phone"],
+                    "oro.contactus.contactrequest.method.phone": "phone",
+                    "oro.contactus.contactrequest.method.email": "emailAddress"
+                }
+            }
+        }|json_encode
+    } %}
+    {% block _edi_form_completion_notes_info_widget %}
+        {# Fix this so it's pulled from the TWIG, but need to move on #}
+        <p style="padding: 10px; background-color: White; border: solid 1px #ACDAF1; margin:10px 0;text-align:justify">Please complete this application with information pertaining to the person who provided the eggs and/or sperm. For example, if egg donation was used, the information should reflect the egg donor characteristics and not the egg recipient. Likewise, if sperm donation was used, the information provided here should reflect the characteristics of the sperm donor and not the male partner.</p>
+    {% endblock %}
+    {% block _edi_form_required_field_notes_info_widget %}
+        {# Fix this so it's pulled from the TWIG, but need to move on #}
+        <p style="padding: 10px; background-color: White; border: solid 1px #ACDAF1; margin:10px 0;">Field names followed by <span class="required-field"> * </span> indicate that input is required</p>
+    {% endblock %}
+    {{ form_start(form, {'attr': formAttr}) }}
+    {# { form_widget(form) } #}
+    <div class="grid">
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.emb_social_history[0].religion) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.emb_social_history[0].religion) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.emb_social_history[0].birthPlace) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.emb_social_history[0].birthPlace) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.emb_social_history[0].occupation) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.emb_social_history[0].occupation) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.emb_social_history[0].hobbiesInterests) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.emb_social_history[0].hobbiesInterests) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <h3 class="blue">Wife/Egg Donor Educational History</h3>
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.emb_edu_history[0].highestEducationLevel) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.emb_edu_history[0].highestEducationLevel) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.emb_edu_history[0].highSchoolGpa) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.emb_edu_history[0].highSchoolGpa) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.emb_edu_history[0].collegeGpa) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.emb_edu_history[0].collegeGpa) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.emb_edu_history[0].satActScores) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.emb_edu_history[0].satActScores) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.emb_edu_history[0].iqScore) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.emb_edu_history[0].iqScore) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.emb_edu_history[0].otherEducationalComments) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.emb_edu_history[0].otherEducationalComments) }}
+            </div>
+        </div>
+    </div>
+    {% block _nav_buttons_widget %}{% endblock %}
+    {{ form_end(form, {'render_rest': false}) }}
+    {{ oro_form_js_validation(form, js_validation_options|default({})) }}
+{% endblock %}

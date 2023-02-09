@@ -1,0 +1,24 @@
+layout:
+  actions:
+    - '@setBlockTheme':
+        themes: ['donation_pictures.html.twig','../edi_forms/nav_buttons.html.twig']
+#    - '@add':
+#        id: donation_application_info
+#        parentId: page_content
+#        blockType: text
+#        options:
+#          text: '=data["training_first_theme_weather"].getWeatherText()'
+    - '@add':
+#        id: form_item
+        id: donation_pictures_info
+        parentId: page_content
+        siblingId: page_content_title
+        blockType: form_fields
+        options:
+          form: '=data["donation_pictures_form"]'
+    - '@add':
+        id: nav_buttons
+        parentId: donation_pictures_info
+        blockType: form_fields
+        options:
+          form: '=data["donation_pictures_form"]'

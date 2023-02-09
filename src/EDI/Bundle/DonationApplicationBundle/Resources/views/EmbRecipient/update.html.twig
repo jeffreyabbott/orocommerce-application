@@ -1,0 +1,177 @@
+{% extends 'OroUIBundle:actions:update.html.twig' %}
+{% import 'OroUIBundle::macros.html.twig' as UI %}
+{% form_theme form with 'OroFormBundle:Form:fields.html.twig' %}
+
+{% if form.vars.value.id %}
+    {% set formAction = path('donation.application_update', { 'id': form.vars.value.id }) %}
+{% else %}
+    {% set formAction = path('donation.application_create') %}
+{% endif %}
+
+{% block navButtons %}
+    {% if form.vars.value.id and is_granted('DELETE', form.vars.value) %}
+        {{ UI.deleteButton({
+            'dataUrl': path('donation.application_delete', {'id': form.vars.value.id}),
+            'dataRedirect': path('donation.application_index'),
+            'aCss': 'no-hash remove-button',
+            'id': 'btn-remove-tag',
+            'dataId': form.vars.value.id,
+            'entity_label': 'EmbApplication'|trans
+        }) }}
+        {{ UI.buttonSeparator() }}
+    {% endif %}
+    {{ UI.cancelButton(path('donation.application_index')) }}
+    {% set html = UI.saveAndCloseButton() %}
+    {% if is_granted('donation.application_update') %}
+        {% set html = html ~ UI.saveAndStayButton() %}
+    {% endif %}
+    {{ UI.dropdownSaveButton({ 'html': html }) }}
+{% endblock navButtons %}
+
+{% block pageHeader %}
+    {% if form.vars.value.id %}
+        {% set breadcrumbs = {
+            'entity':      form.vars.value,
+            'indexPath':   path('donation.application_index'),
+            'indexLabel': 'EmbApplications'|trans,
+            'entityTitle': form.vars.value.embNumber
+        } %}
+        {{ parent() }}
+    {% else %}
+        {% set title = 'oro.ui.create_entity'|trans({'%entityName%': 'EmbApplication'|trans}) %}
+        {% include 'OroUIBundle::page_title_block.html.twig' with { title: 'test' } %}
+    {% endif %}
+{% endblock pageHeader %}
+
+{% block content_data %}
+    {% set id = 'donationapplication-edit' %}
+
+    {% set dataBlocks = [{
+        'title': 'General'|trans,
+        'class': 'active',
+        'subblocks': [{
+            'title': '',
+            'data': [
+                form_row(form.id),
+                form_row(form.fullName),
+                form_row(form.address),
+                form_row(form.city),
+                form_row(form.state),
+                form_row(form.postCode),
+                form_row(form.country),
+                form_row(form.email),
+                form_row(form.cellPhone),
+                form_row(form.workPhone),
+                form_row(form.homePhone),
+                form_row(form.videoConferencing),
+                form_row(form.videoConferencingProvider),
+                form_row(form.videoConferencingUserName),
+                form_row(form.emailContactOk),
+                form_row(form.cellPhoneContactOk),
+                form_row(form.workPhoneContactOk),
+                form_row(form.homePhoneContactOk),
+                form_row(form.maritalStatus),
+                form_row(form.birthDate),
+                form_row(form.currentAge),
+                form_row(form.heightFt),
+                form_row(form.heightIn),
+                form_row(form.weightLbs),
+                form_row(form.bmiCalculation),
+                form_row(form.raceEthnicBackground),
+                form_row(form.currentReligion),
+                form_row(form.currentHealthProblems),
+                form_row(form.currentMedications),
+                form_row(form.cigaretteSmoker),
+                form_row(form.partnerFullName),
+                form_row(form.partnerEmail),
+                form_row(form.partnerCellPhone),
+                form_row(form.partnerWorkPhone),
+                form_row(form.partnerHomePhone),
+                form_row(form.partnerVideoConferencing),
+                form_row(form.partnerVideoConferencingProvider),
+                form_row(form.partnerVideoConferencingUserName),
+                form_row(form.partnerEmailContactOk),
+                form_row(form.partnerCellPhoneContactOk),
+                form_row(form.partnerHomePhoneContactOk),
+                form_row(form.partnerWorkPhoneContactOk),
+                form_row(form.partnerBirthDate),
+                form_row(form.partnerCurrentAge),
+                form_row(form.partnerHeightFt),
+                form_row(form.partnerHeightIn),
+                form_row(form.partnerWeightLbs),
+                form_row(form.partnerBmiCalculation),
+                form_row(form.partnerRaceEthnicBackground),
+                form_row(form.partnerCurrentReligion),
+                form_row(form.partnerCurrentHealthProblems),
+                form_row(form.partnerCurrentMedications),
+                form_row(form.partnerCigaretteSmoker),
+                form_row(form.totalInfertilityYears),
+                form_row(form.infertilityNarrative),
+                form_row(form.gynaecologicSurgeries),
+                form_row(form.hsgPerformed),
+                form_row(form.hsgDetails),
+                form_row(form.fallopianTubes),
+                form_row(form.uterineCavityEvaluation),
+                form_row(form.uterineCavitySurgery),
+                form_row(form.numPregnancies),
+                form_row(form.numTermDeliveries),
+                form_row(form.numPretermDeliveries),
+                form_row(form.numSpontaneousLosses),
+                form_row(form.spontaneousLossesEval),
+                form_row(form.numElectiveTerminations),
+                form_row(form.numLivingChildren),
+                form_row(form.numLivingChildrenWithCurrentPartner),
+                form_row(form.numLivingChildrenWithOtherPartners),
+                form_row(form.numAdoptedChildren),
+                form_row(form.partnerNumLivingChildrenWithOtherPartners),
+                form_row(form.partnerNumAdoptedChildren),
+                form_row(form.signedName),
+                form_row(form.signedDate),
+                form_row(form.partnerSignedName),
+                form_row(form.partnerSignedDate),
+                form_row(form.recipientNotes),
+                form_row(form.medicalStaffComments),
+                form_row(form.medicalStatus),
+                form_row(form.medicalStatusUpdateDate),
+                form_row(form.medicalNameOfPersonUpdating),
+                form_row(form.medicalApprovalDate),
+                form_row(form.medicalRanking),
+                form_row(form.medicalDirectorComments),
+                form_row(form.weightingIndex),
+                form_row(form.category),
+                form_row(form.mhpRecipientOption),
+                form_row(form.approved),
+                form_row(form.drReviewDatetime),
+                form_row(form.createdAt),
+                form_row(form.updatedAt),
+                form_row(form.deletedAt),
+                form_row(form.infertilitySignature),
+                form_row(form.partnerInfertilitySignature),
+                form_row(form.infertilityAgree),
+                form_row(form.infoAccurateTrue),
+                form_row(form.partnerInfoAccurateTrue),
+                form_row(form.publishToStories),
+                form_row(form.publishInfertilityNarrative),
+                form_row(form.userId),
+                form_row(form.isActive),
+                form_row(form.isArchive),
+                form_row(form.datetimeAcrhived),
+                form_row(form.sexual),
+                form_row(form.race),
+                form_row(form.religion),
+                form_row(form.eduction),
+                form_row(form.educationPartner),
+                form_row(form.locationa),
+                form_row(form.locationNotes),
+                form_row(form.racePartner),
+                form_row(form.region),
+            ]
+        }]
+    }]
+    %}
+    {% set data = {
+        'formErrors': form_errors(form)? form_errors(form) : null,
+        'dataBlocks': dataBlocks,
+    } %}
+    {{ parent() }}
+{% endblock content_data %}

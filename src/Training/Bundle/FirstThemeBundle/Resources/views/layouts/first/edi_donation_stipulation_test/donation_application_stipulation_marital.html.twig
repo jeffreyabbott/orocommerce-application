@@ -1,0 +1,17 @@
+{% block _donation_application_stipulation_marital_widget %}
+    <div class="grid__row grid__row--offset-none">
+        <div class="grid__column grid__column--12">
+            <h2>Partner Status/Sexual Orientation:</h2>
+            <div class="row">You have a choice if you would like to stipulate the partner status and sexual orientation of the embryo recipient(s). Please choose any or all of the options below:</div>
+        </div>
+    </div>
+    {# your code here #}
+    {% set formAttr = {
+        'id': form.vars.id,
+        'novalidate': 'novalidate',
+    } %}
+    {{ form_start(form, {'attr': formAttr}) }}
+    <div class="grid__column grid__column--4">{{ form_widget(form) }}</div>
+    {{ form_end(form) }}
+
+{% endblock %}

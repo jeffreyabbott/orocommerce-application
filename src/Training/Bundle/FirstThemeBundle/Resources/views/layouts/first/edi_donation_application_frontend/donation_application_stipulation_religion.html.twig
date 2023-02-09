@@ -1,0 +1,27 @@
+{% block _donation_application_stipulation_religion_widget %}
+    <div class="grid__row grid__row--offset-none">
+        <div class="grid__column grid__column--12">
+            <h2>Religion:</h2>
+            <div class="row">Embryo recipients commonly have a predominant religion in their home, which is the religion an embryo donor-conceived child will be raised in. Please choose any or all of the predominant household religions listed below that you will allow the embryo recipients to be:</div>
+        </div>
+    </div>
+    {% for child in form.religion_stipulations %}
+        {# Marital Status Section #}
+        {% if child.stipulationType.vars.value==constant('EDI\\Bundle\\DonationApplicationBundle\\Entity\\EDIConstants::STIPULATION_TYPE_RELIGION') %}
+            {% if loop.first %}
+                <div class="grid__row grid__row--offset-none"> {# open row #}
+            {% endif %}
+
+
+            {# your code here #}
+            <div class="grid__column grid__column--4">{{ form_widget(child.stipulation) }} {{ form_widget(child.stipulationType) }}</div>
+
+            {% if loop.index % 3 == 0 %}
+                </div><div class="grid__row grid__row--offset-none"> {# after 3 iterates close row and open new #}
+            {% endif %}
+            {% if loop.last %}
+                </div> {# close last row #}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}

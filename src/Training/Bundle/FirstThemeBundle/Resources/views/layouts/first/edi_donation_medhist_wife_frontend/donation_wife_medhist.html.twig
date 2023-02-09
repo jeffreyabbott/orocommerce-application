@@ -1,0 +1,186 @@
+{% block _donation_wife_medhist_info_widget %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+    {% set attr = attr|merge({
+        'data-page-component-view': 'trainingfirsttheme/js/app/views/donationapplicationformuiux-view'
+    }) %}
+    <div {{ block('block_attributes') }}>
+    <h1 class="heading blue">Wife/Egg Donor Medical History (5/13)</h1>
+
+
+    {% set formAttr = {
+        'id': form.vars.id,
+        'novalidate': 'novalidate',
+    } %}
+
+
+    {% block _edi_form_completion_notes_info_widget %}
+        {# Fix this so it's pulled from the TWIG, but need to move on #}
+        <p style="padding: 10px; background-color: White; border: solid 1px #ACDAF1; margin:10px 0;text-align:justify">Please complete this application with information pertaining to the person who provided the eggs and/or sperm. For example, if egg donation was used, the information should reflect the egg donor characteristics and not the egg recipient. Likewise, if sperm donation was used, the information provided here should reflect the characteristics of the sperm donor and not the male partner.</p>
+    {% endblock %}
+    {% block _edi_form_required_field_notes_info_widget %}
+        {# Fix this so it's pulled from the TWIG, but need to move on #}
+        <p style="padding: 10px; background-color: White; border: solid 1px #ACDAF1; margin:10px 0;">Field names followed by <span class="required-field"> * </span> indicate that input is required</p>
+    {% endblock %}
+    {{ form_start(form, {'attr': formAttr}) }}
+    <div class="grid">
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.medicalProblems) }}
+                {{ form_widget(form.medicalProblems,
+                    { 'id':'medical_problems','attr': {'class': 'medical_problems','id':'medical_problems'}}
+                )}}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_label(form.medicalProblemsText) }}
+                {{ form_widget(form.medicalProblemsText,
+                    { 'id':'medical_problems_text','attr': {'class': 'medical_problems_text','disabled':'disabled'}}
+                ) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.surgeries) }}
+                {{ form_widget(form.surgeries,
+                    { 'id':'surgeries','attr': {'class': 'surgeries','id':'surgeries'}}
+                )}}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_label(form.surgeriesText) }}
+                {{ form_widget(form.surgeriesText,
+                    { 'id':'surgeries_text','attr': {'class': 'surgeries_text','disabled':'disabled'}}
+                ) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.currentMedications) }}
+                {{ form_widget(form.currentMedications,
+                    { 'id':'current_medications','attr': {'class': 'current_medications','id':'current_medications'}}
+                ) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_label(form.currentMedicationsText) }}
+                {{ form_widget(form.currentMedicationsText,
+                    { 'id':'current_medications_text','attr': {'class': 'current_medications_text','disabled':'disabled'}}
+                ) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.allergies) }}
+                {{ form_widget(form.allergies,
+                    { 'id':'allergies','attr': {'class': 'allergies','id':'allergies'}}
+                ) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_label(form.allergiesText) }}
+                {{ form_widget(form.allergiesText,
+                    { 'id':'allergies_text','attr': {'class': 'allergies_text','disabled':'disabled'}}
+                ) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.smoker) }}
+                {{ form_widget(form.smoker,
+                    { 'id':'smoker','attr': {'class': 'smoker','id':'smoker'}}
+                ) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_label(form.smokerHowMuch) }}
+                {{ form_widget(form.smokerHowMuch,
+                    { 'id':'smoker_text','attr': {'class': 'smoker_text','disabled':'disabled'}}
+                ) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.alcoholUse) }}
+                {{ form_widget(form.alcoholUse,
+                    { 'id':'alcohol_use','attr': {'class': 'alcohol_use','id':'alcohol_use'}}
+                ) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_label(form.alcoholUseText) }}
+                {{ form_widget(form.alcoholUseText,
+                    { 'id':'alcohol_use_text','attr': {'class': 'alcohol_use_text','disabled':'disabled'}}
+                ) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.glassesContacts) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.glassesContacts) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.hearingProblems) }}
+                {{ form_widget(form.hearingProblems,
+                    { 'id':'hearing_problems','attr': {'class': 'hearing_problems','id':'hearing_problems'}}
+                ) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_label(form.hearingProblemsSeverity) }}
+                {{ form_widget(form.hearingProblemsSeverity,
+                    { 'id':'hearing_problems_text','attr': {'class': 'hearing_problems_text','disabled':'disabled'}}
+                ) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.dentalProblems) }}
+                {{ form_widget(form.dentalProblems,
+                    { 'id':'dental_problems','attr': {'class': 'dental_problems','id':'dental_problems'}}
+                ) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_label(form.dentalProblemsSeverity) }}
+                {{ form_widget(form.dentalProblemsSeverity,
+                    { 'id':'dental_problems_text','attr': {'class': 'dental_problems_text','disabled':'disabled'}}
+                ) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.dietRestrictions) }}
+                {{ form_widget(form.dietRestrictions,
+                    { 'id':'diet_restrictions','attr': {'class': 'diet_restrictions','id':'diet_restrictions'}}
+                ) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_label(form.dietRestrictionsText) }}
+                {{ form_widget(form.dietRestrictionsText,
+                    { 'id':'diet_restrictions_text','attr': {'class': 'diet_restrictions_text','disabled':'disabled'}}
+                ) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.bloodType) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.bloodType) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.historyInfertility) }}
+                {{ form_widget(form.historyInfertility,
+                    { 'id':'history_infertility','attr': {'class': 'history_infertility','id':'history_infertility'}}
+                ) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_label(form.historyInfertilityText) }}
+                {{ form_widget(form.historyInfertilityText,
+                    { 'id':'history_infertility_text','attr': {'class': 'history_infertility_text','disabled':'disabled'}}
+                ) }}
+            </div>
+        </div>
+    </div>
+    {% block _nav_buttons_widget %}{% endblock %}
+    {{ form_end(form, {'render_rest': false}) }}
+    {{ oro_form_js_validation(form, js_validation_options|default({})) }}
+{% endblock %}

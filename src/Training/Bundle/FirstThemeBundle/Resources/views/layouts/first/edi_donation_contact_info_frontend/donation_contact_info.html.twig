@@ -1,0 +1,173 @@
+{% block _donation_contact_info_widget %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+
+    <h1 class="heading blue">Contact Details - Embryo Donor Application (3/13)</h1>
+    {% set attr = attr|merge({
+        'data-page-component-view': 'trainingfirsttheme/js/app/views/donationapplicationformuiux-view'
+    }) %}
+
+    {% set formAttr = {
+        'id': form.vars.id,
+        'novalidate': 'novalidate',
+    } %}
+
+    {% set fieldAttr = {
+        "data-validation": {
+            "Oro\\Bundle\\ContactUsBundle\\Validator\\ContactRequestCallbackValidator": {
+                "target": "preferredContactMethod",
+                "deps": {
+                    "oro.contactus.contactrequest.method.both": ["emailAddress", "phone"],
+                    "oro.contactus.contactrequest.method.phone": "phone",
+                    "oro.contactus.contactrequest.method.email": "emailAddress"
+                }
+            }
+        }|json_encode
+    } %}
+    {% block _edi_form_completion_notes_info_widget %}
+        {# Fix this so it's pulled from the TWIG, but need to move on #}
+        <p style="padding: 10px; background-color: White; border: solid 1px #ACDAF1; margin:10px 0;text-align:justify">Please complete this application with information pertaining to the person who provided the eggs and/or sperm. For example, if egg donation was used, the information should reflect the egg donor characteristics and not the egg recipient. Likewise, if sperm donation was used, the information provided here should reflect the characteristics of the sperm donor and not the male partner.</p>
+    {% endblock %}
+    {% block _edi_form_required_field_notes_info_widget %}
+        {# Fix this so it's pulled from the TWIG, but need to move on #}
+        <p style="padding: 10px; background-color: White; border: solid 1px #ACDAF1; margin:10px 0;">Field names followed by <span class="required-field"> * </span> indicate that input is required</p>
+    {% endblock %}
+    {{ form_start(form, {'attr': formAttr}) }}
+    <div class="grid">
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.fullName) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.fullName) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.partnerFullName) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.partnerFullName) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.address) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.address) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.country) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.country) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.city) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.city) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.state) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_widget(form.state) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.zip) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_widget(form.zip) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.homePhone) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_widget(form.homePhone) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.homePhoneContact) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_widget(form.homePhoneContact) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.businessPhone) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_widget(form.businessPhone) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.businessPhoneContact) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_widget(form.businessPhoneContact) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.cellPhone) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_widget(form.cellPhone) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.cellPhoneContact) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_widget(form.cellPhoneContact) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.pager) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_widget(form.pager) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.pagerContact) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_widget(form.pagerContact) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.email) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_widget(form.email) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.emailContact) }}
+            </div>
+            <div class="grid__column grid__column--3">
+                {{ form_widget(form.emailContact) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.howIHeard)}}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.howIHeard)}}
+            </div>
+        </div>
+    </div>
+    {% block _nav_buttons_widget %}{% endblock %}
+    {{ form_end(form, {'render_rest': false}) }}
+    {{ oro_form_js_validation(form, js_validation_options|default({})) }}
+
+{% endblock %}

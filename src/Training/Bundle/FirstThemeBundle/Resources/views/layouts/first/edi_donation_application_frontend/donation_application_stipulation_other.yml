@@ -1,0 +1,17 @@
+layout:
+  actions:
+    - '@setBlockTheme':
+        themes: 'donation_application_stipulation_other.html.twig'
+    #    - '@add':
+    #        id: donation_application_info
+    #        parentId: page_content
+    #        blockType: text
+    #        options:
+    #          text: '=data["training_first_theme_weather"].getWeatherText()'
+    - '@add':
+        #        id: form_item
+        id: donation_application_stipulation_other
+        parentId: donation_application_form
+        blockType: form_fields
+        options:
+          form: '=data["donation_application_form"]'

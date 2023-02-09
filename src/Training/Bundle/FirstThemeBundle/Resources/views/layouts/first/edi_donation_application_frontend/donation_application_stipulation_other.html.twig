@@ -1,0 +1,15 @@
+{% block _donation_application_stipulation_other_widget %}
+    <div class="grid__row grid__row--offset-none">
+        <div class="grid__column grid__column--12">
+            <h2>Other</h2>
+            <div class="row">If there are any other stipulations you feel are important, please list them below remembering that if you are too restrictive, the embryos are unlikely to be chosen:</div>
+        </div>
+    </div>
+    <div class="grid__row grid__row--offset-none">
+        <div class="grid__column grid__column--6">
+        </div>
+        <div class="grid__column grid__column--6">
+            {{ form_widget(form.otherLimitingStipulations) }}
+        </div>
+    </div>
+{% endblock %}

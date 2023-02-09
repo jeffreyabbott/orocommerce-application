@@ -1,0 +1,29 @@
+{% block _donation_application_stipulation_marital_widget %}
+    <div class="grid__row grid__row--offset-none">
+        <div class="grid__column grid__column--12">
+            <h2>Partner Status/Sexual Orientation:</h2>
+            <div class="row">You have a choice if you would like to stipulate the partner status and sexual orientation of the embryo recipient(s). Please choose any or all of the options below:</div>
+        </div>
+    </div>
+    {% for child in form.marriage_stipulations %}
+        {# Marital Status Section #}
+        {#  dump(child) } #}
+        {% if child.stipulationType.vars.value==constant('EDI\\Bundle\\DonationApplicationBundle\\Entity\\EDIConstants::STIPULATION_TYPE_MARITAL_STATUS') %}
+            {% if loop.first %}
+                <div class="grid__row grid__row--offset-none"> {# open row #}
+            {% endif %}
+
+
+            {# your code here #}
+
+            <div class="grid__column grid__column--4">{{ form_widget(child.stipulation) }} {{ form_widget(child.stipulationType) }}</div>
+
+            {% if loop.index % 3 == 0 %}
+                </div><div class="grid__row grid__row--offset-none"> {# after 3 iterates close row and open new #}
+            {% endif %}
+            {% if loop.last %}
+                </div> {# close last row #}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}

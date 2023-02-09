@@ -1,0 +1,36 @@
+{% block _nav_buttons_widget %}
+    <div class="grid__row grid__row--offset-none">
+        <div class="grid__column grid__column--12">
+            &nbsp;
+        </div>
+    </div>
+    <div class="grid__row grid__row--offset-none">
+        <div class="grid__column grid__column--2">
+            {% if form.prev_button is defined %}
+                {{ form_widget(form.prev_button) }}
+            {% endif %}
+        </div>
+        <div class="grid__column grid__column--2">
+            {% if form.save_button is defined %}
+                {{ form_widget(form.save_button) }}
+            {% endif %}
+        </div>
+        <div class="grid__column grid__column--2">
+            {% if form.next_button is defined %}
+                {{ form_widget(form.next_button) }}
+            {% endif %}
+        </div>
+        <div class="grid__column grid__column--2">
+            {% if form.submit_button is defined %}
+                {{ form_widget(form.submit_button) }}
+            {% endif %}
+        </div>
+    </div>
+    {{ form_widget(form.button_clicked_hidden, { 'id': 'button_clicked_hidden'}) }}
+    <div class="grid__row grid__row--offset-none">
+        <div class="grid__column grid__column--12">
+            &nbsp;
+        </div>
+    </div>
+
+{% endblock %}

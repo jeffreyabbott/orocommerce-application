@@ -1,0 +1,13 @@
+layout:
+    actions:
+        - '@add':
+            id: form_item
+            parentId: page_content
+            blockType: form_fields
+            options:
+                form: '=data["emb_application_form"]'
+        - '@setOption':
+            id: page_title
+            optionName: defaultValue
+            optionValue:
+                label: 'edi.emb_application.title'

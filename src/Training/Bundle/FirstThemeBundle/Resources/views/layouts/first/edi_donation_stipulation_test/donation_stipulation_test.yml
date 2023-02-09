@@ -1,0 +1,11 @@
+layout:
+  actions:
+    - '@setBlockTheme':
+        themes: 'donation_application_stipulation_marital.html.twig'
+    - '@add':
+        id: donation_application_stipulation_marital
+        parentId: page_content
+        siblingId: page_content_title
+        blockType: form_fields
+        options:
+          form: '=data["donation_stipulation_test_form"]'

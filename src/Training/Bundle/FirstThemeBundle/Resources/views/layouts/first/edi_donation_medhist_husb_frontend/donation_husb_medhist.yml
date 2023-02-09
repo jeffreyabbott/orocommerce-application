@@ -1,0 +1,18 @@
+layout:
+  actions:
+    - '@setBlockTheme':
+        themes: ['donation_husb_medhist.html.twig','../edi_forms/nav_buttons.html.twig']
+
+    - '@add':
+        id: donation_husb_medhist_info
+        parentId: page_content
+        siblingId: page_content_title
+        blockType: form_fields
+        options:
+          form: '=data["donation_husb_medhist_form"]'
+    - '@add':
+        id: nav_buttons
+        parentId: donation_husb_medhist_info
+        blockType: form_fields
+        options:
+          form: '=data["donation_husb_medhist_form"]'

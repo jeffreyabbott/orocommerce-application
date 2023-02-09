@@ -1,0 +1,29 @@
+{% block _donation_application_stipulation_location_widget %}
+    <div class="grid__row grid__row--offset-none">
+        <div class="grid__column grid__column--12">
+            <h2>Location</h2>
+            <div class="row">Please indicate if you want to exclude potential embryo recipients that currently live near you:</div>
+        </div>
+    </div>
+
+        {# Location Section #}
+        {% if form.location_stipulation.stipulationType.vars.value==constant('EDI\\Bundle\\DonationApplicationBundle\\Entity\\EDIConstants::STIPULATION_TYPE_LOCATION') %}
+            {% for choice in form.location_stipulation.stipulation %}
+                {% if loop.first %}
+                    <div class="grid__row grid__row--offset-none"> {# open row #}
+                {% endif %}
+
+
+                {# your code here #}
+                <div class="grid__column grid__column--12">{{ form_widget(choice) }}</div>
+                {% if loop.index % 1 == 0 %}
+                    </div><div class="grid__row grid__row--offset-none"> {# after 3 iterates close row and open new #}
+                {% endif %}
+                {% if loop.last %}
+                    </div> {# close last row #}
+                {% endif %}
+            {% endfor %}
+            {{ form_widget(form.location_stipulation.stipulationType) }}
+            {{ form_widget(form.location_stipulation.id) }}
+        {% endif %}
+{% endblock %}

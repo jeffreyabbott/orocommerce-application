@@ -9,7 +9,11 @@
     }
   ],
   "autoload": {
-    "psr-4": {"": "src/"},
+    "psr-4": {
+      "": "src/",
+      "EDI\\Bundle\\" : "EDI/Bundle/src",
+      "EDI\\Bridge\\" : "EDI/Bridge/src"
+    },
     "classmap": [
       "src/AppKernel.php"
     ],
@@ -33,7 +37,11 @@
     "oro/crm-zendesk": "5.0.*",
     "oro/commerce": "5.0.*",
     "oro/commerce-crm": "5.0.*",
-    "oro/cookie-consent": "5.0.*"
+    "oro/cookie-consent": "5.0.*",
+    "liip/imagine-bundle": "^2.1",
+    "oneup/flysystem-bundle": "3.x",
+    "league/flysystem-aws-s3-v3": "^1.0",
+    "league/flysystem-cached-adapter": "^1.1"
   },
   "require-dev": {
     "behat/behat": "~3.10.0",

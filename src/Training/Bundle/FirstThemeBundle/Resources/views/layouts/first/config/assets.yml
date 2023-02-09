@@ -1,0 +1,4 @@
+styles:
+    inputs: []
+#    output: 'css/layout/first/styles.css'
+    output: 'css/styles.css'

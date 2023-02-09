@@ -1,0 +1,13 @@
+{% block _test_stipulations_layout_form_widget %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+    {% set attr = attr|merge({
+        'data-page-component-view': 'trainingfirsttheme/js/app/views/donationapplicationformuiux-view'
+    }) %}
+
+<div {{ block('block_attributes') }}>
+</div>
+    {{ form_row(form) }}
+    {# { form_end(form)} #}
+    {# { oro_form_js_validation(test_stipulations_layout_form, js_validation_options|default({})) }} #}
+
+{% endblock %}

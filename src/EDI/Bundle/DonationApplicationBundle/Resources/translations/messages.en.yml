@@ -1,0 +1,9 @@
+edi:
+  donationapplication:
+    embapplication:
+      entity_label: Embryo Donation Applications
+      entity_plural_label: Embryo Donation Applications
+oro:
+  translation:
+    emb_application_:
+      label: Localized value

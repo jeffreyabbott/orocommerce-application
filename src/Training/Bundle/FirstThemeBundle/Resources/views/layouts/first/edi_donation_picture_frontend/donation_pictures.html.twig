@@ -1,0 +1,110 @@
+{% block _donation_pictures_info_widget %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+
+    <h1 class="heading blue">Picture Upload - Embryo Donor Application (2/13)</h1>
+    <p>The information you provide will be made part of your medical record and will remain confidential. These materials may only be released in their entirety with your written permission. Many of the questions below are quite personal and the answers will <u>not</u> be posted on the Website database and will only be reviewed by the medical staff at EDI.</p>
+    <p>We appreciate your honesty in answering the questions  in this application. Any missing information will require follow-up and significantly delay the posting of your embryos to the database.</p>
+    <p>Please also provide a low resolution (72 dpi image) photograph or either you and your partner (as adults or children), or a picture of your children, should you have any. The recipients are simply looking for some visual clues as to what you and your family may look like. The embryos from donors that provide flattering photographs seem to be chosen more quickly. Please do not upload any photographs that include other people such as friends and/or family. EDI reserves the right to modify the images so that they can be better viewed on the Website.</p>
+    <p>To futher protect you and your medical information, all of the images and medical information you provide here are protected from  search engines, so facial recognition  and  data mining software will not have access to your images or information.</p>
+    {% set attr = attr|merge({
+        'data-page-component-view': 'trainingfirsttheme/js/app/views/donationapplicationformuiux-view'
+    }) %}
+
+    {% set formAttr = {
+        'id': form.vars.id,
+        'novalidate': 'novalidate',
+    } %}
+
+    {% set fieldAttr = {
+        "data-validation": {
+            "Oro\\Bundle\\ContactUsBundle\\Validator\\ContactRequestCallbackValidator": {
+                "target": "preferredContactMethod",
+                "deps": {
+                    "oro.contactus.contactrequest.method.both": ["emailAddress", "phone"],
+                    "oro.contactus.contactrequest.method.phone": "phone",
+                    "oro.contactus.contactrequest.method.email": "emailAddress"
+                }
+            }
+        }|json_encode
+    } %}
+
+    {{ form_start(form, {'attr': formAttr, 'multipart':true}) }}
+    {{ form_widget(form._token) }}
+    <div class="grid">
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <h3 class="blue">Find and Upload Pictures</h3>
+                <p>If you  do not want to provide any photographs at this time, you can simply skip this step. Photographs can be scanned and returned upon request, although this will delay the posting of your embryos. Remembers that images help to find your donated embryos a home quicker.</p>
+                <p><b>Please provide a low resolution JPG image.</b></p>
+            </div>
+        </div>
+
+
+        {# % for pic in form.emb_pictures % #}
+
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <hr>
+            </div>
+        </div>
+
+        <!-- Begin Picture 1 info -->
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.pictureFileName)}}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_row(form.pictureFileName)}}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.nameAlias)}}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.nameAlias)}}
+            </div>
+            <div class="grid__column grid__column--3">
+                (What ever name you type here will be seen on the website)
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                &nbsp;
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.includePictureWebPrint)}}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                &nbsp;
+            </div>
+            <div class="grid__column grid__column--6">
+                - OR -
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                &nbsp;
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.includePictureOffice)}}
+            </div>
+        </div>
+        <!-- End Picture1 Info-->
+        {#  % endfor % #}
+
+
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--12">
+                <hr>
+            </div>
+        </div>
+    </div>
+    {% block _nav_buttons_widget %}{% endblock %}
+    {{ form_end(form, {'render_rest': false}) }}
+    {{ oro_form_js_validation(form, js_validation_options|default({})) }}
+
+
+{% endblock %}

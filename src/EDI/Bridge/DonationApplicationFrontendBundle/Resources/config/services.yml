@@ -1,0 +1,98 @@
+parameters:
+  #    uploads_dir_name: 'uploads'
+  #    uploads_base_url: '%env(SITE_BASE_URL)%/%uploads_dir_name%'
+  uploads_base_url: 'https://%env(AWS_S3_ACCESS_BUCKET)%.s3.amazonaws.com'
+
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: false # Automatically registers your services as commands, event subscribers, etc.
+
+    #bind:
+      #            $publicUploadFilesystem: '@oneup_flysystem.public_uploads_filesystem_filesystem'
+ #need this     $uploadFilesystem: '@oneup_flysystem.uploads_filesystem_filesystem'
+      #            $privateUploadFilesystem: '@oneup_flysystem.private_uploads_filesystem_filesystem'
+#need this      $uploadedAssetsBaseUrl: '%uploads_base_url%'
+#need this      $s3BucketName: '%env(AWS_S3_ACCESS_BUCKET)%'
+
+
+  emb_picture.file_manager:
+    parent: oro_gaufrette.file_manager
+    autowire: true
+    autoconfigure: false # Automatically registers your services as commands, event subscribers, etc.
+
+    arguments:
+      - 'emb_pictures' # the name of Gaufrette filesystem should be used as the storage.
+
+  Oro\Bundle\GaufretteBundle\FileManager: '@emb_picture.file_manager'
+
+  # makes classes in src/ available to be used as services
+  # this creates a service per class whose id is the fully-qualified class name
+  EDI\Bridge\DonationApplicationFrontendBundle\:
+    resource: '../../*'
+    exclude: '../../{Entity,Migrations,Tests}'
+    tags: ['controller.service_arguments']
+
+  EDI\Bundle\DonationApplicationBundle\Service\StipulationsGroupsHelper:
+    autowire: true
+
+  EDI\Bundle\DonationApplicationBundle\Service\DonationApplicationPagingButtonsHelper:
+    autowire: true
+
+# Issues with these 4 not working - Need to fix for the image uploads
+  EDI\Bundle\DonationApplicationBundle\Service\PicturesHelper:
+    autowire: true
+
+  EDI\Bundle\DonationApplicationBundle\Repository\EmbPicturesRepository:
+    autowire: true
+
+  EDI\Bundle\DonationApplicationBundle\Form\Transformer\ChoiceToStringTransformer:
+    autowire: true
+
+  EDI\Bundle\DonationApplicationBundle\Service\UploaderHelper:
+    autowire: true
+
+
+  Aws\S3\S3Client:
+    arguments:
+      -
+        version: '2006-03-01'
+        region: "us-east-1"
+        credentials:
+          key: '%env(AWS_S3_ACCESS_ID)%'
+          secret: '%env(AWS_S3_ACCESS_SECRET)%'
+# End Issues with these 4 not working - Need to fix for the image uploads
+
+#Added these services and they need to be edited and / or renamed.
+
+  #added services
+  edi_frontend.handler.donation_application_customer_registration_handler:
+    class: EDI\Bridge\DonationApplicationFrontendBundle\Handler\DonationApplicationCustomerRegistrationHandler
+    public: true
+    arguments:
+#      - '@edi_oro_customer.provider.frontend_customer_user_registration_form'
+      - '@training_first_theme.layout.frontend_customer_user_registration_form'
+      - '@oro_customer_user.manager'
+      - '@oro_customer.handler.frontend_customer_user_handler'
+      - '@oro_form.update_handler'
+      - '@translator'
+
+
+
+  edi_oro_customer.provider.frontend_customer_user_registration_form:
+    class: 'EDI\Bridge\DonationApplicationFrontendBundle\Layout\DataProvider\DonationApplicationFrontendCustomerUserRegistrationFormProvider'
+    public: true
+    arguments:
+      - "@form.factory"
+      - "@oro_config.manager"
+      - "@oro_website.manager"
+      - "@doctrine"
+      - '@router'
+    tags:
+      - { name: layout.data_provider, alias: edi_oro_customer_frontend_customer_user_register }
+
+  #added aliases
+  Oro\Bundle\CustomerBundle\Entity\CustomerUserManager: '@oro_customer_user.manager'
+  Oro\Bundle\CustomerBundle\Form\Handler\FrontendCustomerUserHandler: '@oro_customer.handler.frontend_customer_user_handler'
+

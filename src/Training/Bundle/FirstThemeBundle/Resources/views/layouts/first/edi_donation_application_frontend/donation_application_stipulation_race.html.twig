@@ -1,0 +1,28 @@
+{% block _donation_application_stipulation_race_widget %}
+    <div class="grid__row grid__row--offset-none">
+        <div class="grid__column grid__column--12">
+            <h2>Race:</h2>
+            <div>All races below are currently selected. Please uncheck any races you do not want to receive your embryos. Because nearly all embryo donors and recipients are made up of a mixture of races, a recipient qualifies if 50% or more of their ancestry is the race that you specify below. <span style="font-weight: 900">In order to match your donated embryos to recipients, recipients are described as predominantly one race or a mixture of two races but not more.</span></div>
+        </div>
+    </div>
+    {% for child in form.race_stipulations %}
+        {# Race Section #}
+        {% if child.stipulationType.vars.value==constant('EDI\\Bundle\\DonationApplicationBundle\\Entity\\EDIConstants::STIPULATION_TYPE_RACE') %}
+            {% if loop.first %}
+            <div class="grid__row grid__row--offset-none"> {# open row #}
+            {% endif %}
+
+
+            {# your code here #}
+            <div class="grid__column grid__column--4">{{ form_widget(child.stipulation) }} {{ form_widget(child.stipulationType) }}</div>
+
+            {% if loop.index % 3 == 0 %}
+                </div><div class="grid__row grid__row--offset-none"> {# after 3 iterates close row and open new #}
+            {% endif %}
+            {% if loop.last %}
+                </div> {# close last row #}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    <br><br>
+{% endblock %}

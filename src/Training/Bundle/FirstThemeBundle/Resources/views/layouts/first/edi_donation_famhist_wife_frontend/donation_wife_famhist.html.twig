@@ -1,0 +1,342 @@
+{% block _donation_wife_famhist_info_widget %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+    {% set attr = attr|merge({
+        'data-page-component-view': 'trainingfirsttheme/js/app/views/donationapplicationformuiux-view'
+    }) %}
+    <div {{ block('block_attributes') }}>
+
+    <h1 class="heading blue">Wife/Egg Donor Family History (7/13)</h1>
+
+    {% set formAttr = {
+        'id': form.vars.id,
+        'novalidate': 'novalidate',
+    } %}
+
+    {% set fieldAttr = {
+        "data-validation": {
+            "Oro\\Bundle\\ContactUsBundle\\Validator\\ContactRequestCallbackValidator": {
+                "target": "preferredContactMethod",
+                "deps": {
+                    "oro.contactus.contactrequest.method.both": ["emailAddress", "phone"],
+                    "oro.contactus.contactrequest.method.phone": "phone",
+                    "oro.contactus.contactrequest.method.email": "emailAddress"
+                }
+            }
+        }|json_encode
+    } %}
+    {% block _edi_form_completion_notes_info_widget %}
+        {# Fix this so it's pulled from the TWIG, but need to move on #}
+        <p style="padding: 10px; background-color: White; border: solid 1px #ACDAF1; margin:10px 0;text-align:justify">Please complete this application with information pertaining to the person who provided the eggs and/or sperm. For example, if egg donation was used, the information should reflect the egg donor characteristics and not the egg recipient. Likewise, if sperm donation was used, the information provided here should reflect the characteristics of the sperm donor and not the male partner.</p>
+    {% endblock %}
+    {% block _edi_form_required_field_notes_info_widget %}
+        {# Fix this so it's pulled from the TWIG, but need to move on #}
+        <p style="padding: 10px; background-color: White; border: solid 1px #ACDAF1; margin:10px 0;">Field names followed by <span class="required-field"> * </span> indicate that input is required</p>
+    {% endblock %}
+    {{ form_start(form, {'attr': formAttr}) }}
+    <div class="grid">
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.motherAlive) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.motherAlive,
+                    { 'id':'mother_alive','attr': {'class': 'mother_alive','id':'mother_alive'}}
+                ) }}
+            </div>
+        </div>
+        <div id="mother_alive_medical_problems_section" style="display:none;" class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.motherMedicalProblems) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.motherMedicalProblems) }}
+            </div>
+        </div>
+        <div id="mother_alive_age_death_section" style="display:none;" class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.motherDeathAge) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.motherDeathAge) }}
+            </div>
+        </div>
+        <div id="mother_alive_death_cause_section" style="display:none;" class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.motherDeathCause) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.motherDeathCause) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.fatherAlive) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.fatherAlive,
+                    { 'id':'father_alive','attr': {'class': 'father_alive','id':'father_alive'}}
+                ) }}
+            </div>
+        </div>
+        <div id="father_alive_medical_problems_section" style="display:none;" class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.fatherMedicalProblems) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.fatherMedicalProblems) }}
+            </div>
+        </div>
+        <div id="father_alive_age_death_section" style="display:none;" class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.fatherDeathAge) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.fatherDeathAge) }}
+            </div>
+        </div>
+        <div id="father_alive_death_cause_section" style="display:none;" class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.fatherDeathCause) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.fatherDeathCause) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.haveSisters) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.haveSisters,
+                    { 'id':'have_sisters','attr': {'class': 'have_sisters','id':'have_sisters'}}) }}
+            </div>
+        </div>
+        <div id="have_sisters_number_health_section" style="display:none;" class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.numSistersAndHealth) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.numSistersAndHealth) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.haveBrothers) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.haveBrothers,
+                    { 'id':'have_brothers','attr': {'class': 'have_brothers','id':'have_brothers'}}
+                 ) }}
+            </div>
+        </div>
+        <div id="have_brothers_number_health_section" style="display:none;" class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.numBrothersAndHealth) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.numBrothersAndHealth) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--6">
+                <h3 class="blue">Wife/ Egg Donor Family History of Genetic Diseases</h3>
+                <p>Please include three generations of your family.</p>
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.bloodDiseases) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.bloodDiseases) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.hearingDifficulties) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.hearingDifficulties) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.malformations) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.malformations) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.spinalCranialProblems) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.spinalCranialProblems) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.chromosomeAbnormalities) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.chromosomeAbnormalities) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.colorBlindness) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.colorBlindness) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.bornBlind) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.bornBlind) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.cysticFibrosis) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.cysticFibrosis) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.bornDeaf) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.bornDeaf) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.epilepsy) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.epilepsy) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.glaucoma) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.glaucoma) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.highBloodPressure) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.highBloodPressure) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.mentalRetardation) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.mentalRetardation) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.muscularDystrophy) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.muscularDystrophy) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.neurofibromatosis) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.neurofibromatosis) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.prematureOrganDegeneration) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.prematureOrganDegeneration) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.psychiatricIllness) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.psychiatricIllness) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.severeAllergies) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.severeAllergies) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.sickleCellDisease) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.sickleCellDisease) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.taySachDisease) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.taySachDisease) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.transmissibleSpongiform) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.transmissibleSpongiform) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.twoOrMoreMiscarriages) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.twoOrMoreMiscarriages) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.otherGeneticDiseases) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.otherGeneticDiseases) }}
+            </div>
+        </div>
+        <div class="grid__row grid__row--offset-none">
+            <div class="grid__column grid__column--3">
+                {{ form_label(form.explainYesAnswers) }}
+            </div>
+            <div class="grid__column grid__column--6">
+                {{ form_widget(form.explainYesAnswers) }}
+            </div>
+        </div>
+    </div>
+    {% block _nav_buttons_widget %}{% endblock %}
+    {{ form_end(form, {'render_rest': false}) }}
+    {{ oro_form_js_validation(form, js_validation_options|default({})) }}
+{% endblock %}

@@ -1,0 +1,11 @@
+layout:
+  actions:
+    - '@setBlockTheme':
+        themes: 'test_stipulations_layout_form.html.twig'
+    - '@add':
+        id: test_stipulations_layout_form
+        parentId: page_content
+        siblingId: page_content_title
+        blockType: form_fields
+        options:
+          form: '=data["test_stipulations_layout_form"]'

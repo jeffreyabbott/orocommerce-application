@@ -1,0 +1,2708 @@
+datagrids:
+  donation-application-test-grid:
+    source:
+      acl_resource: donation.application_view
+      type: orm
+      query:
+        select:
+          - application.id
+          - application.embNumber
+          - application.datetimeCreated
+          - application.initials
+          - application.email
+          - application.photo1
+          - application.photo2
+          - application.photo1Description
+          - application.photo2Description
+          - application.includePhoto
+          - application.includePhotoOffice
+          - application.includePhotoWebPrint
+          - application.embSrcOwn
+          - application.embSrcOwnPi1
+          - application.embSrcOwnPi2
+          - application.embSrcDonorSperm
+          - application.embSrcDonorSpermPi1
+          - application.embSrcDonorSpermPi2
+          - application.embSrcDonorEggs
+          - application.embSrcDonorEggsPi1
+          - application.embSrcDonorEggsPi2
+          - application.embSrcMixture
+          - application.embSrcMixturePi1
+          - application.embSrcMixturePi2
+          - application.agreeBloodReTest
+          - application.agreeBloodReTestPi1
+          - application.agreeBloodReTestPi2
+          - application.pastEmbryoDonor
+          - application.otherFacilities
+          - application.bestQualities
+          - application.srmsComments
+          - application.sayToRecipient
+          - application.informationTrueAccurate
+          - application.signedNameHusband
+          - application.signedNameWife
+          - application.signedDate
+          - application.otherLimitingStipulations
+          - application.onReserve
+          - application.isActive
+          - application.category
+          - application.mhpOption
+          - application.ptpIdpOption
+          - application.mhpDonorInfo
+          - application.donorSingleName
+          - application.donorSingleSignature
+          - application.donorFirstPartnerName
+          - application.donorFirstPartnerSignature
+          - application.donorSecondPartnerName
+          - application.donorSecondPartnerSignature
+          - application.idInfoWhen
+          - application.embryoStatus
+          - application.embryosWhenCreated
+          - application.embryosWhereCreated
+          - application.embryosMultipleStorageFacilities
+          - application.embryosWhereStored
+          - application.embryosHowManyStored
+          - application.embryosResidualStorageFees
+          - application.embCharity
+          - application.userId
+          - application.datetimeModified
+          - application.medicalStaffComments
+          - application.medicalDirectorComments
+          - application.drReviewDatetime
+          - application.isArchive
+          - application.datetimeAcrhived
+          - application.embryosWereTheyCreatedName
+          - application.embryosWereTheyCreatedLocation
+          - application.embryosWereTheyCreatedName1
+          - application.embryosWereTheyCreatedLocation1
+        from:
+          - { table: EDI\Bundle\DonationApplicationBundle\Entity\EmbApplication, alias: application }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      embNumber:
+        label: Application Number
+        frontend_type: integer
+      datetimeCreated:
+       label: Date Created
+       frontend_type: date
+      initials:
+        label: Initials
+      email:
+        label: Email
+      photo1:
+        label: Photo 1
+      photo2:
+        label: Photo 2
+      photo1Description:
+        label: Photo 1 Description
+      photo2Description:
+        label: Photo 2 Dscription
+      includePhoto:
+        label: Include Photo
+      includePhotoOffice:
+        label: Include Photo Office
+      includePhotoWebPrint:
+        label: Photo Web Print
+      embSrcOwn:
+        label: Embryo Source Owner
+      embSrcOwnPi1:
+        label: Embryo Source Owner Pi 1
+      embSrcOwnPi2:
+        label: Embryo Source Owner Pi 2
+      embSrcDonorSperm:
+        label: Embryo Source Donor Sperm
+      embSrcDonorSpermPi1:
+        label: Embryo Source Donor Sperm Pi 1
+      embSrcDonorSpermPi2:
+        label: Embryo Source Donor Sperm Pi 2
+      embSrcDonorEggs:
+        label: Embryo Source Donor Eggs
+      embSrcDonorEggsPi1:
+        label: Embryo Source Donor Eggs Pi 1
+      embSrcDonorEggsPi2:
+        label: Embryo Source Donor Eggs Pi 2
+      embSrcMixture:
+        label: Embryo Source Mixture
+      embSrcMixturePi1:
+        label: Embryo Source Mixture Pi 1
+      embSrcMixturePi2:
+        label: Embryo Source Mixture Pi 2
+      agreeBloodReTest:
+        label: Agree to Blood Re Test
+      agreeBloodReTestPi1:
+        label: Agree to Blood Re Test Pi 1
+      agreeBloodReTestPi2:
+        label: Agree to Blood Re Test Pi 2
+      pastEmbryoDonor:
+        label: Past Embryo Donor
+      otherFacilities:
+        label: Other Facilities
+      bestQualities:
+        label: Best Qualities
+      srmsComments:
+        label: SRMS Comments
+      sayToRecipient:
+        label: Say To Recipient
+      informationTrueAccurate:
+        label: Is Information True and Accruate
+      signedNameHusband:
+        label: Husband Name Signed
+      signedNameWife:
+        label: Wife Name Signed
+      signedDate:
+        label: Signed Date
+        frontend_type: date
+      otherLimitingStipulations:
+        label: Other Limiting Stipulations
+      onReserve:
+        label: On Reserve
+      isActive:
+        label: Is Active
+      category:
+        label: Category
+      mhpOption:
+        label: MHP Option
+      ptpIdpOption:
+        label: PTP IDP Option
+      mhpDonorInfo:
+        label: MHP Donor Information
+      donorSingleName:
+        label: Donor Single Name
+      donorSingleSignature:
+        label: Donor Single Signature
+      donorFirstPartnerName:
+        label: Donor First Partner Name
+      donorFirstPartnerSignature:
+        label: Donor First Partner Signature
+      donorSecondPartnerName:
+        label: Donor Second Partner Name
+      donorSecondPartnerSignature:
+        label: Donor Second Partner Signature
+      idInfoWhen:
+        label: ID Info When
+        frontend_type: date
+      embryoStatus:
+        label: Embryo Status
+      embryosWhenCreated:
+        label: When were they created?
+        frontend_type: date
+      embryosWhereCreated:
+        label: What IVF facility were they created
+      embryosMultipleStorageFacilities:
+        label: Is there more than one storage facility that currently has your embryos?
+      embryosWhereStored:
+        label: What IVF facility were they created
+      embryosHowManyStored:
+        label: How many are currently stored?
+      embryosResidualStorageFees:
+        label: Are there any residual storage fees currently?
+      embCharity:
+        label: By selecting a charity below, we will donate to charity.
+      userId:
+        label: UserID
+      datetimeModified:
+       label: Date Modified
+       frontend_type: date
+      medicalStaffComments:
+        label: Medical Staff Comments
+      medicalDirectorComments:
+        label: Medical Director Comments
+      drReviewDatetime:
+        label: Dr Review Date
+        frontend_type: date
+      isArchive:
+        label: Is Archived
+      datetimeAcrhived:
+       label: Date Archived
+       frontend_type: date
+      embryosWereTheyCreatedName:
+        label: Embryos Were They Created Name
+      embryosWereTheyCreatedLocation:
+        label: Embryos Were They Created Location
+      embryosWereTheyCreatedName1:
+        label: Embryos Were They Created Name 1
+      embryosWereTheyCreatedLocation1:
+        label: Embryos Were They Created Location 1
+    sorters:
+      columns:
+        embNumber:
+          data_name: application.embNumber
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: application.embNumber
+  donation-application-grid:
+    source:
+      acl_resource: donation.application_view
+      type: orm
+      query:
+        select:
+          - application.id
+          - application.embNumber
+          - application.datetimeCreated
+          - application.initials
+          - application.email
+          - application.photo1
+          - application.photo2
+          - application.photo1Description
+          - application.photo2Description
+          - application.includePhoto
+          - application.includePhotoOffice
+          - application.includePhotoWebPrint
+          - application.embSrcOwn
+          - application.embSrcOwnPi1
+          - application.embSrcOwnPi2
+          - application.embSrcDonorSperm
+          - application.embSrcDonorSpermPi1
+          - application.embSrcDonorSpermPi2
+          - application.embSrcDonorEggs
+          - application.embSrcDonorEggsPi1
+          - application.embSrcDonorEggsPi2
+          - application.embSrcMixture
+          - application.embSrcMixturePi1
+          - application.embSrcMixturePi2
+          - application.agreeBloodReTest
+          - application.agreeBloodReTestPi1
+          - application.agreeBloodReTestPi2
+          - application.pastEmbryoDonor
+          - application.otherFacilities
+          - application.bestQualities
+          - application.srmsComments
+          - application.sayToRecipient
+          - application.informationTrueAccurate
+          - application.signedNameHusband
+          - application.signedNameWife
+          - application.signedDate
+          - application.otherLimitingStipulations
+          - application.onReserve
+          - application.isActive
+          - application.category
+          - application.mhpOption
+          - application.ptpIdpOption
+          - application.mhpDonorInfo
+          - application.donorSingleName
+          - application.donorSingleSignature
+          - application.donorFirstPartnerName
+          - application.donorFirstPartnerSignature
+          - application.donorSecondPartnerName
+          - application.donorSecondPartnerSignature
+          - application.idInfoWhen
+          - application.embryoStatus
+          - application.embryosWhenCreated
+          - application.embryosWhereCreated
+          - application.embryosMultipleStorageFacilities
+          - application.embryosWhereStored
+          - application.embryosHowManyStored
+          - application.embryosResidualStorageFees
+          - application.embCharity
+          - application.userId
+          - application.datetimeModified
+          - application.medicalStaffComments
+          - application.medicalDirectorComments
+          - application.drReviewDatetime
+          - application.isArchive
+          - application.datetimeAcrhived
+          - application.embryosWereTheyCreatedName
+          - application.embryosWereTheyCreatedLocation
+          - application.embryosWereTheyCreatedName1
+          - application.embryosWereTheyCreatedLocation1
+        from:
+          - { table: EDI\Bundle\DonationApplicationBundle\Entity\EmbApplication, alias: application }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      embNumber:
+        label: Application Number
+        frontend_type: integer
+      datetimeCreated:
+        label: Date Created
+        frontend_type: date
+      initials:
+        label: Initials
+      email:
+        label: Email
+      photo1:
+        label: Photo 1
+      photo2:
+        label: Photo 2
+      photo1Description:
+        label: Photo 1 Description
+      photo2Description:
+        label: Photo 2 Dscription
+      includePhoto:
+        label: Include Photo
+      includePhotoOffice:
+        label: Include Photo Office
+      includePhotoWebPrint:
+        label: Photo Web Print
+      embSrcOwn:
+        label: Embryo Source Owner
+      embSrcOwnPi1:
+        label: Embryo Source Owner Pi 1
+      embSrcOwnPi2:
+        label: Embryo Source Owner Pi 2
+      embSrcDonorSperm:
+        label: Embryo Source Donor Sperm
+      embSrcDonorSpermPi1:
+        label: Embryo Source Donor Sperm Pi 1
+      embSrcDonorSpermPi2:
+        label: Embryo Source Donor Sperm Pi 2
+      embSrcDonorEggs:
+        label: Embryo Source Donor Eggs
+      embSrcDonorEggsPi1:
+        label: Embryo Source Donor Eggs Pi 1
+      embSrcDonorEggsPi2:
+        label: Embryo Source Donor Eggs Pi 2
+      embSrcMixture:
+        label: Embryo Source Mixture
+      embSrcMixturePi1:
+        label: Embryo Source Mixture Pi 1
+      embSrcMixturePi2:
+        label: Embryo Source Mixture Pi 2
+      agreeBloodReTest:
+        label: Agree to Blood Re Test
+      agreeBloodReTestPi1:
+        label: Agree to Blood Re Test Pi 1
+      agreeBloodReTestPi2:
+        label: Agree to Blood Re Test Pi 2
+      pastEmbryoDonor:
+        label: Past Embryo Donor
+      otherFacilities:
+        label: Other Facilities
+      bestQualities:
+        label: Best Qualities
+      srmsComments:
+        label: SRMS Comments
+      sayToRecipient:
+        label: Say To Recipient
+      informationTrueAccurate:
+        label: Is Information True and Accruate
+      signedNameHusband:
+        label: Husband Name Signed
+      signedNameWife:
+        label: Wife Name Signed
+      signedDate:
+        label: Signed Date
+        frontend_type: date
+      otherLimitingStipulations:
+        label: Other Limiting Stipulations
+      onReserve:
+        label: On Reserve
+      isActive:
+        label: Is Active
+      category:
+        label: Category
+      mhpOption:
+        label: MHP Option
+      ptpIdpOption:
+        label: PTP IDP Option
+      mhpDonorInfo:
+        label: MHP Donor Information
+      donorSingleName:
+        label: Donor Single Name
+      donorSingleSignature:
+        label: Donor Single Signature
+      donorFirstPartnerName:
+        label: Donor First Partner Name
+      donorFirstPartnerSignature:
+        label: Donor First Partner Signature
+      donorSecondPartnerName:
+        label: Donor Second Partner Name
+      donorSecondPartnerSignature:
+        label: Donor Second Partner Signature
+      idInfoWhen:
+        label: ID Info When
+        frontend_type: date
+      embryoStatus:
+        label: Embryo Status
+      embryosWhenCreated:
+        label: When were they created?
+        frontend_type: date
+      embryosWhereCreated:
+        label: What IVF facility were they created
+      embryosMultipleStorageFacilities:
+        label: Is there more than one storage facility that currently has your embryos?
+      embryosWhereStored:
+        label: What IVF facility were they created
+      embryosHowManyStored:
+        label: How many are currently stored?
+      embryosResidualStorageFees:
+        label: Are there any residual storage fees currently?
+      embCharity:
+        label: By selecting a charity below, we will donate to charity.
+      userId:
+        label: UserID
+      datetimeModified:
+        label: Date Modified
+        frontend_type: date
+      medicalStaffComments:
+        label: Medical Staff Comments
+      medicalDirectorComments:
+        label: Medical Director Comments
+      drReviewDatetime:
+        label: Dr Review Date
+        frontend_type: date
+      isArchive:
+        label: Is Archived
+      datetimeAcrhived:
+        label: Date Archived
+      embryosWereTheyCreatedName:
+        label: Embryos Were They Created Name
+      embryosWereTheyCreatedLocation:
+        label: Embryos Were They Created Location
+      embryosWereTheyCreatedName1:
+        label: Embryos Were They Created Name 1
+      embryosWereTheyCreatedLocation1:
+        label: Embryos Were They Created Location 1
+    properties:
+      id: ~
+      update_link:
+        type: url
+        route: donation.application_update
+        params:
+          - id
+      view_link:
+        type: url
+        route: donation.application_view
+        params:
+          - id
+      delete_link:
+        type: url
+        route: donation_api_delete_application
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: application.embNumber
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: application.embNumber
+    options:
+      entityHint: edi.donationapplication.embapplication.entity_plural_label
+    actions:
+      view:
+        type:          navigate
+        label:         View
+        link:          view_link
+        icon:          eye-open
+        acl_resource:  donation.application_view
+        rowAction:     true
+      update:
+        type:          navigate
+        label:         Update
+        link:          update_link
+        icon:          edit
+        acl_resource:  donation.application_update
+      delete:
+        type:          delete
+        label:         Delete
+        link:          delete_link
+        icon:          trash
+        acl_resource:  donation.application_delete
+  donation-application-contact-info-grid:
+    source:
+      acl_resource: donation.application_contactinfo_view
+      type: orm
+      query:
+        select:
+          - contactinfo.applicationId
+          - contactinfo.fullName
+          - contactinfo.partnerFullName
+          - contactinfo.address
+          - contactinfo.city
+          - contactinfo.state
+          - contactinfo.zip
+          - contactinfo.homePhone
+          - contactinfo.homePhoneContact
+          - contactinfo.businessPhone
+          - contactinfo.businessPhoneContact
+          - contactinfo.cellPhone
+          - contactinfo.cellPhoneContact
+          - contactinfo.pager
+          - contactinfo.pagerContact
+          - contactinfo.email
+          - contactinfo.emailContact
+          - contactinfo.socialSecurity
+          - contactinfo.howIHeard
+          - contactinfo.country
+        from:
+          - { table: DonationApplicationBundle:EmbFavorite, alias: contactinfo }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+      fullName:
+        label: Full name
+      partnerFullName:
+        label: Partner Full Name
+      address:
+        label: Addrress
+      city:
+        label: City
+      state:
+        label: State
+      zip:
+        label: ZipCode
+      homePhone:
+        label: Home Phone
+        frontend_type: phonenumber
+      homePhoneContact:
+        label: Phone Contact
+      businessPhone:
+        label: Business Phone
+        frontend_type: phonenumber
+      businessPhoneContact:
+        label: Phone Contact
+      cellPhone:
+        label: Cell Phone
+        frontend_type: phonenumber
+      cellPhoneContact:
+        label: Cell Phone Contact
+      pager:
+        label: Pager
+        frontend_type: phonenumber
+      pagerContact:
+        label: Pager Contact
+      email:
+        label: Email
+        frontend_type: emailaddress
+      emailContact:
+        label: Email Contact
+      socialSecurity:
+        label: Social Security Number
+      howIHeard:
+        label: How I heard About EDI
+      country:
+        label: Country
+    properties:
+      id: ~
+      update_link_contactinfo:
+        type: url
+        route: donation.application_contactinfo_update
+        params:
+          - id
+      view_link_contactinfo:
+        type: url
+        route: donation.application_contactinfo_view
+        params:
+          - id
+      delete_link_contactinfo:
+        type: url
+        route: donation_api_delete_application_contactinfo
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: contactinfo.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: contactinfo.id
+    options:
+      entityHint: edi.donationapplication.embcontactinfo.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_contactinfo
+        icon: eye-open
+        acl_resource: donation.application_contactinfo_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_contactinfo
+        icon: edit
+        acl_resource: donation.application_contactinfo_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_contactinfo
+        icon: trash
+        acl_resource: donation.application_contactinfo_delete
+    entity_label: Embryo Donation Application Contact Info
+    entity_plural_label: Embryo Donation Application Contact Infos
+  donation-application-favorite-grid:
+    source:
+      acl_resource: donation.application_favorite_view
+      type: orm
+      query:
+        select:
+          - favorite.id
+          - favorite.userId
+          - favorite.applicationId
+        from:
+          - { table: DonationApplicationBundle:EmbFavorite, alias: favorite }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      userId:
+        label: User ID
+      applicationId:
+        label: Application ID
+    properties:
+      id: ~
+      update_link_favorite:
+        type: url
+        route: donation.application_favorite_update
+        params:
+          - id
+      view_link_favorite:
+        type: url
+        route: donation.application_favorite_view
+        params:
+          - id
+      delete_link_favorite:
+        type: url
+        route: donation_api_delete_application_favorite
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: favorite.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: favorite.id
+    options:
+      entityHint: edi.donationapplication.embfavorite.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_favorite
+        icon: eye-open
+        acl_resource: donation.application_favorite_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_favorite
+        icon: edit
+        acl_resource: donation.application_favorite_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_favorite
+        icon: trash
+        acl_resource: donation.application_favorite_delete
+    entity_label: Embryo Donation Application Favorites
+    entity_plural_label: Embryo Donation Application Favorites
+  donation-application-husb-edu-history-grid:
+    source:
+      acl_resource: donation.application_husbeduhistory_view
+      type: orm
+      query:
+        select:
+          - husbeduhistory.id
+          - husbeduhistory.applicationId
+          - husbeduhistory.highestEducationLevel
+          - husbeduhistory.highSchoolGpa
+          - husbeduhistory.collegeGpa
+          - husbeduhistory.satActScores
+          - husbeduhistory.iqScore
+          - husbeduhistory.otherEducationalComments
+        from:
+          - { table: DonationApplicationBundle:EmbHusbEduHistory, alias: husbeduhistory }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+      highestEducationLevel:
+        label: Highest Education Level
+      highSchoolGpa:
+        label: High School GPA
+      collegeGpa:
+        label: College GPA
+      satActScores:
+        label: SAT / ACT Scores
+      iqScore:
+        label: IQ Score
+      otherEducationalComments:
+        label: Other Educational Comments
+    properties:
+      id: ~
+      update_link_husbeduhistory:
+        type: url
+        route: donation.application_husbeduhistory_update
+        params:
+          - id
+      view_link_husbeduhistory:
+        type: url
+        route: donation.application_husbeduhistory_view
+        params:
+          - id
+      delete_link_husbeduhistory:
+        type: url
+        route: donation_api_delete_application_husbeduhistory
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: husbeduhistory.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: husbeduhistory.id
+    options:
+      entityHint: edi.donationapplication.embhusbeduhistory.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_husbeduhistory
+        icon: eye-open
+        acl_resource: donation.application_husbeduhistory_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_husbeduhistory
+        icon: edit
+        acl_resource: donation.application_husbeduhistory_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_husbeduhistory
+        icon: trash
+        acl_resource: donation.application_husbeduhistory_delete
+    entity_label: Embryo Donation Application Husband Education History
+    entity_plural_label: Embryo Donation Applications Husband Education Histories
+  donation-application-husbfamhist-grid:
+    source:
+      acl_resource: donation.application_husbfamhist_view
+      type: orm
+      query:
+        select:
+          - husbfamhist.id
+          - husbfamhist.applicationId
+          - husbfamhist.motherAlive
+          - husbfamhist.motherDeathAge
+          - husbfamhist.motherDeathCause
+          - husbfamhist.motherMedicalProblems
+          - husbfamhist.fatherAlive
+          - husbfamhist.fatherDeathAge
+          - husbfamhist.fatherDeathCause
+          - husbfamhist.fatherMedicalProblems
+          - husbfamhist.haveSisters
+          - husbfamhist.numSistersAndHealth
+          - husbfamhist.haveBrothers
+          - husbfamhist.numBrothersAndHealth
+          - husbfamhist.alcoholism
+          - husbfamhist.bloodDiseases
+          - husbfamhist.hearingDifficulties
+          - husbfamhist.malformations
+          - husbfamhist.spinalCranialProblems
+          - husbfamhist.chromosomeAbnormalities
+          - husbfamhist.colorBlindness
+          - husbfamhist.bornBlind
+          - husbfamhist.cysticFibrosis
+          - husbfamhist.bornDeaf
+          - husbfamhist.diabetes
+          - husbfamhist.epilepsy
+          - husbfamhist.glaucoma
+          - husbfamhist.highBloodPressure
+          - husbfamhist.mentalRetardation
+          - husbfamhist.muscularDystrophy
+          - husbfamhist.neurofibromatosis
+          - husbfamhist.prematureOrganDegeneration
+          - husbfamhist.psychiatricIllness
+          - husbfamhist.severeAllergies
+          - husbfamhist.sickleCellDisease
+          - husbfamhist.taySachDisease
+          - husbfamhist.transmissibleSpongiform
+          - husbfamhist.twoOrMoreMiscarriages
+          - husbfamhist.otherGeneticDiseases
+          - husbfamhist.explainYesAnswers
+        from:
+          - { table: DonationApplicationBundle:EmbHusbFamHist, alias: husbfamhist }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+      motherAlive:
+        label: Mother Alive
+      motherDeathAge:
+        label: Mother's age at death
+        frontend_type: integer
+      motherDeathCause:
+        label: Mother's cause of death
+      motherMedicalProblems:
+        label: Mother Medical Problems
+      fatherAlive:
+        label: Father Alive
+      fatherDeathAge:
+        label: Father's age at death
+      fatherDeathCause:
+        label: Father's cause of death
+      fatherMedicalProblems:
+        label: Father Medical Problems
+      haveSisters:
+        label: Have Sisters?
+      numSistersAndHealth:
+        label: Number of Sisters and Health
+      haveBrothers:
+        label: Have Brothers?
+      numBrothersAndHealth:
+        label: Number of Brothers and Health
+      alcoholism:
+        label: Alcoholism
+      bloodDiseases:
+        label: Blood Diseases
+      hearingDifficulties:
+        label: Hearing Difficulties
+      malformations:
+        label: Malformations
+      spinalCranialProblems:
+        label: Spinal and Cranial Problems
+      chromosomeAbnormalities:
+        label: Chromosome Abnormalities
+      colorBlindness:
+        label: Color Blindness
+      bornBlind:
+        label: Born Blind
+      cysticFibrosis:
+        label: Cystic Fibrosis
+      bornDeaf:
+        label: Born Deaf
+      diabetes:
+        label: Diabetes
+      epilepsy:
+        label: Epilepsy
+      glaucoma:
+        label: Glaucoma
+      highBloodPressure:
+        label: High Blood Pressure
+      mentalRetardation:
+        label: Mental Retardation
+      muscularDystrophy:
+        label: Nuscular Dystrophy
+      neurofibromatosis:
+        label: Neurofibromatosis
+      prematureOrganDegeneration:
+        label: Premature Organ Degeneration
+      psychiatricIllness:
+        label: Pyschiatric Illness
+      severeAllergies:
+        label: Severe Allergies
+      sickleCellDisease:
+        label: Sickle Cell Disease
+      taySachDisease:
+        label: Tay Scah Disease
+      transmissibleSpongiform:
+        label: Transmissible Spongiform
+      twoOrMoreMiscarriages:
+        label: Two or more misscarriages
+      otherGeneticDiseases:
+        label: Other Genetic Diseases
+      explainYesAnswers:
+        label: Explain Yes Answers
+    properties:
+        id: ~
+        update_link_husbfamhist:
+          type: url
+          route: donation.application_husbfamhist_update
+          params:
+            - id
+        view_link_husbfamhist:
+          type: url
+          route: donation.application_husbfamhist_view
+          params:
+            - id
+        delete_link_husbfamhist:
+          type: url
+          route: donation_api_delete_application_husbfamhist
+          params:
+            - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: husbfamhist.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: _husbfamhist.id
+    options:
+      entityHint: edi.donationapplication.embhusbfamhist.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_husbfamhist
+        icon: eye-open
+        acl_resource: donation.application_husbfamhist_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_husbfamhist
+        icon: edit
+        acl_resource: donation.application_husbfamhist_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_husbfamhist
+        icon: trash
+        acl_resource: donation.application_husbfamhist_delete
+    entity_label: Embryo Donation Application Husband Family History
+    entity_plural_label: Embryo Donation Applications Husband Family Histories
+  donation-application-husbmedhist-grid:
+    source:
+      acl_resource: donation.application_husbmedhist_view
+      type: orm
+      query:
+        select:
+          - husbmedhist.id
+          - husbmedhist.applicationId
+          - husbmedhist.medicalProblems
+          - husbmedhist.medicalProblemsText
+          - husbmedhist.surgeries
+          - husbmedhist.surgeriesText
+          - husbmedhist.currentMedications
+          - husbmedhist.currentMedicationsText
+          - husbmedhist.allergies
+          - husbmedhist.allergiesText
+          - husbmedhist.smoker
+          - husbmedhist.smokerWillingToQuit
+          - husbmedhist.smokerHowMuch
+          - husbmedhist.alcoholUse
+          - husbmedhist.alcoholUseText
+          - husbmedhist.glassesContacts
+          - husbmedhist.hearingProblems
+          - husbmedhist.hearingProblemsSeverity
+          - husbmedhist.dentalProblems
+          - husbmedhist.dentalProblemsSeverity
+          - husbmedhist.dietRestrictions
+          - husbmedhist.dietRestrictionsText
+          - husbmedhist.bloodType
+          - husbmedhist.historyInfertility
+          - husbmedhist.historyInfertilityText
+        from:
+          - { table: DonationApplicationBundle:EmbHusbMedHist, alias: husbmedhist }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+      medicalProblems:
+        label: Medical Problems
+      medicalProblemsText:
+        label: Medical Problems Text
+      surgeries:
+        label: Surgeries
+      surgeriesText:
+        label: Surgeries Text
+      currentMedications:
+        label: Current Medications
+      currentMedicationsText:
+        label: Current Medication Text
+      allergies:
+        label: Allergies
+      allergiesText:
+        label: Alleriges Text
+      smoker:
+        label: Smoker
+      smokerWillingToQuit:
+        label: Smoker but willing to quite
+      smokerHowMuch:
+        label: Smoker How Much
+      alcoholUse:
+        label: Alcohol Use
+      alcoholUseText:
+        label: Alcohol Use Text
+      glassesContacts:
+        label: Glasses or Contacts
+      hearingProblems:
+        label: Hearing Problems
+      hearingProblemsSeverity:
+        label: Hearing Problems Severity
+      dentalProblems:
+        label: Dental Problems
+      dentalProblemsSeverity:
+        label: Dental Problems Severity
+      dietRestrictions:
+        label: Diet Restrictions
+      dietRestrictionsText:
+        label: Diet Restrictions Text
+      bloodType:
+        label: Blood Type
+      historyInfertility:
+        label: History of Infertility
+      historyInfertilityText:
+        label: History of Infertility Text
+    properties:
+      id: ~
+      update_link_husbmedhist:
+        type: url
+        route: donation.application_husbmedhist_update
+        params:
+          - id
+      view_link_husbmedhist:
+        type: url
+        route: donation.application_husbmedhist_view
+        params:
+          - id
+      delete_link_husbmedhist:
+        type: url
+        route: donation_api_delete_application_husbmedhist
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: husbmedhist.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: husbmedhist.id
+    options:
+      entityHint: edi.donationapplication.embhusbmedhist.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_husbmedhist
+        icon: eye-open
+        acl_resource: donation.application_husbmedhist_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_husbmedhist
+        icon: edit
+        acl_resource: donation.application_husbmedhist_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_husbmedhist
+        icon: trash
+        acl_resource: donation.application_husbmedhist_delete
+    entity_label: Embryo Donation Application Husband Medical History
+    entity_plural_label: Embryo Donation Applications Husband Medical Histories
+  donation-application-husbphyschar-grid:
+    source:
+      acl_resource: donation.application_husbphyschar_view
+      type: orm
+      query:
+        select:
+          - husbphyschar.id
+          - husbphyschar.applicationId
+          - husbphyschar.dateOfBirth
+          - husbphyschar.ethnicOrigin
+          - husbphyschar.race
+          - husbphyschar.skinTone
+          - husbphyschar.boneStructure
+          - husbphyschar.eyeColor
+          - husbphyschar.hairColor
+          - husbphyschar.hairTexture
+          - husbphyschar.hairStructure
+          - husbphyschar.heightFt
+          - husbphyschar.heightIn
+          - husbphyschar.weightLbs
+        from:
+          - { table: DonationApplicationBundle:EmbHusbPhysChar, alias: husbphyschar }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+      dateOfBirth:
+        label: Date of Birth
+        frontend_type: date
+      ethnicOrigin:
+        label: Ethnic Origin
+      race:
+        label: Race
+      skinTone:
+        label: Skin Tone
+      boneStructure:
+        label: Bone Structure
+      eyeColor:
+        label: Eye Color
+      hairColor:
+        label: Hair Color
+      hairTexture:
+        label: Hair Texture
+      hairStructure:
+        label: Hair Structure
+      heightFt:
+        label: Height (Feet)
+      heightIn:
+        label: Heigh (Inches)
+      weightLbs:
+        label: Weight (LBS)
+    properties:
+      id: ~
+      update_link_husbphyschar:
+        type: url
+        route: donation.application_husbphyschar_update
+        params:
+          - id
+      view_link_husbphyschar:
+        type: url
+        route: donation.application_husbphyschar_view
+        params:
+          - id
+      delete_link_husbphyschar:
+        type: url
+        route: donation_api_delete_application_husbphyschar
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: husbphyschar.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: husbphyschar.id
+    options:
+      entityHint: edi.donationapplication.embhusbphyschar.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_husbphyschar
+        icon: eye-open
+        acl_resource: donation.application_husbphyschar_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_husbphyschar
+        icon: edit
+        acl_resource: donation.application_husbphyschar_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_husbphyschar
+        icon: trash
+        acl_resource: donation.application_husbphyschar_delete
+    entity_label: Embryo Donation Application Husband Physical Characteristic
+    entity_plural_label: Embryo Donation Applications Husband Physical Characteristics
+  donation-application-husbsocialhistory-grid:
+    source:
+      acl_resource: donation.application_husbsocialhistory_view
+      type: orm
+      query:
+        select:
+          - husbsocialhistory.id
+          - husbsocialhistory.applicationId
+          - husbsocialhistory.religion
+          - husbsocialhistory.birthPlace
+          - husbsocialhistory.occupation
+          - husbsocialhistory.hobbiesInterests
+        from:
+          - { table: DonationApplicationBundle:EmbHusbSocialHistory, alias: husbsocialhistory }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+      religion:
+        label: Religion
+      birthPlace:
+        label: Birth Place
+      occupation:
+        label: Occupation
+      hobbiesInterests:
+        label: Hobbies and Interests
+    properties:
+        id: ~
+        update_link_husbsocialhistory:
+          type: url
+          route: donation.application_husbsocialhistory_update
+          params:
+            - id
+        view_link_husbsocialhistory:
+          type: url
+          route: donation.application_husbsocialhistory_view
+          params:
+            - id
+        delete_link_husbsocialhistory:
+          type: url
+          route: donation_api_delete_application_husbsocialhistory
+          params:
+            - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: husbsocialhistory.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: husbsocialhistory.id
+    options:
+      entityHint: edi.donationapplication.embhusbsocialhistory.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_husbsocialhistory
+        icon: eye-open
+        acl_resource: donation.application_husbsocialhistory_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_husbsocialhistory
+        icon: edit
+        acl_resource: donation.application_husbsocialhistory_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_husbsocialhistory
+        icon: trash
+        acl_resource: donation.application_husbsocialhistory_delete
+    entity_label: Embryo Donation Application Husband Social History
+    entity_plural_label: Embryo Donation Applications Husband Social History
+  donation-application-picture-grid:
+    source:
+      acl_resource: donation.application_picture_view
+      type: orm
+      query:
+        select:
+          - picture.id
+          - picture.applicationId
+          - picture.pictureFileName
+          - picture.nameAlias
+          - picture.description
+          - picture.includePictureWebPrint
+          - picture.includePictureOffice
+          - picture.isActive
+          - picture.isApproved
+        from:
+          - { table: DonationApplicationBundle:EmbPicture, alias: picture }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+      pictureFileName:
+        label: Picture File name
+      nameAlias:
+        label: Name Alias
+      description:
+        label: Description
+      includePictureWebPrint:
+        label: Include Picture Web Print
+      includePictureOffice:
+        label: Include Picture Office
+      isActive:
+        label: Is Active
+      isApproved:
+        label: Is Approved
+    properties:
+      id: ~
+      update_link:
+        type: url
+        route: donation.application_picture_update
+        params:
+          - id
+      view_link_picture:
+        type: url
+        route: donation.application_picture_view
+        params:
+          - id
+      delete_link_picture:
+        type: url
+        route: donation_api_delete_application_picture
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: picture.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: picture.id
+    options:
+      entityHint: edi.donationapplication.embpicture.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_picture
+        icon: eye-open
+        acl_resource: donation.application_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_picture
+        icon: edit
+        acl_resource: donation.application_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_picture
+        icon: trash
+        acl_resource: donation.application_delete
+    entity_label: Embryo Donation Application Picture
+    entity_plural_label: Embryo Donation Application Pictures
+  donation-application-quality-grid:
+    source:
+      acl_resource: donation.application_quality_view
+      type: orm
+      query:
+        select:
+          - quality.id
+          - quality.applicationId
+          - quality.origin
+          - quality.numAvailable
+          - quality.cryopreservedOnDay
+          - quality.dateOfCreation
+          - quality.overallQuality
+          - quality.freshTransferRate
+          - quality.frozenTransferRate
+          - quality.comments
+        from:
+          - { table: DonationApplicationBundle:EmbQuality, alias: quality }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+        frontend_type: integer
+      origin:
+        label: Origin
+      numAvailable:
+        label: Number Available
+      cryopreservedOnDay:
+        label: Cryo Preserved On Day
+        frontend_type: date
+      dateOfCreation:
+        label: Creation Date
+        frontend_type: date
+      overallQuality:
+        label: Overall Quality
+      freshTransferRate:
+        label: Fresh Transfer Rate
+      frozenTransferRate:
+        label: Frozen Transfer Rate
+      comments:
+        label: Comments
+    properties:
+      id: ~
+      update_link_quality:
+        type: url
+        route: donation.application_quality_update
+        params:
+          - id
+      view_link_quality:
+        type: url
+        route: donation.application_quality_view
+        params:
+          - id
+      delete_link_quality:
+        type: url
+        route: donation_api_delete_application_quality
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: quality.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: quality.id
+    options:
+      entityHint: edi.donationapplication.embquality.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_quality
+        icon: eye-open
+        acl_resource: donation.application_quality_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_quality
+        icon: edit
+        acl_resource: donation.application_quality_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_quality
+        icon: trash
+        acl_resource: donation.application_quality_delete
+    entity_label: Embryo Donation Application Quality
+    entity_plural_label: Embryo Donation Application Qualities
+  donation-application-recipient-grid:
+    source:
+      acl_resource: donation.application_recipient_view
+      type: orm
+      query:
+        select:
+          - recipient.id
+          - recipient.fullName
+          - recipient.address
+          - recipient.city
+          - recipient.state
+          - recipient.postCode
+          - recipient.country
+          - recipient.email
+          - recipient.cellPhone
+          - recipient.workPhone
+          - recipient.homePhone
+          - recipient.videoConferencing
+          - recipient.videoConferencingProvider
+          - recipient.videoConferencingUserName
+          - recipient.emailContactOk
+          - recipient.cellPhoneContactOk
+          - recipient.workPhoneContactOk
+          - recipient.homePhoneContactOk
+          - recipient.maritalStatus
+          - recipient.birthDate
+          - recipient.currentAge
+          - recipient.heightFt
+          - recipient.heightIn
+          - recipient.weightLbs
+          - recipient.bmiCalculation
+          - recipient.raceEthnicBackground
+          - recipient.currentReligion
+          - recipient.currentHealthProblems
+          - recipient.currentMedications
+          - recipient.cigaretteSmoker
+          - recipient.partnerFullName
+          - recipient.partnerEmail
+          - recipient.partnerCellPhone
+          - recipient.partnerWorkPhone
+          - recipient.partnerHomePhone
+          - recipient.partnerVideoConferencing
+          - recipient.partnerVideoConferencingProvider
+          - recipient.partnerVideoConferencingUserName
+          - recipient.partnerEmailContactOk
+          - recipient.partnerCellPhoneContactOk
+          - recipient.partnerHomePhoneContactOk
+          - recipient.partnerWorkPhoneContactOk
+          - recipient.partnerBirthDate
+          - recipient.partnerCurrentAge
+          - recipient.partnerHeightFt
+          - recipient.partnerHeightIn
+          - recipient.partnerWeightLbs
+          - recipient.partnerBmiCalculation
+          - recipient.partnerRaceEthnicBackground
+          - recipient.partnerCurrentReligion
+          - recipient.partnerCurrentHealthProblems
+          - recipient.partnerCurrentMedications
+          - recipient.partnerCigaretteSmoker
+          - recipient.totalInfertilityYears
+          - recipient.infertilityNarrative
+          - recipient.gynaecologicSurgeries
+          - recipient.hsgPerformed
+          - recipient.hsgDetails
+          - recipient.fallopianTubes
+          - recipient.uterineCavityEvaluation
+          - recipient.uterineCavitySurgery
+          - recipient.numPregnancies
+          - recipient.numTermDeliveries
+          - recipient.numPretermDeliveries
+          - recipient.numSpontaneousLosses
+          - recipient.spontaneousLossesEval
+          - recipient.numElectiveTerminations
+          - recipient.numLivingChildren
+          - recipient.numLivingChildrenWithCurrentPartner
+          - recipient.numLivingChildrenWithOtherPartners
+          - recipient.numAdoptedChildren
+          - recipient.partnerNumLivingChildrenWithOtherPartners
+          - recipient.partnerNumAdoptedChildren
+          - recipient.signedName
+          - recipient.signedDate
+          - recipient.partnerSignedName
+          - recipient.partnerSignedDate
+          - recipient.recipientNotes
+          - recipient.medicalStaffComments
+          - recipient.medicalStatus
+          - recipient.medicalStatusUpdateDate
+          - recipient.medicalNameOfPersonUpdating
+          - recipient.medicalApprovalDate
+          - recipient.medicalRanking
+          - recipient.medicalDirectorComments
+          - recipient.weightingIndex
+          - recipient.category
+          - recipient.mhpRecipientOption
+          - recipient.approved
+          - recipient.drReviewDatetime
+          - recipient.createdAt
+          - recipient.updatedAt
+          - recipient.deletedAt
+          - recipient.infertilitySignature
+          - recipient.partnerInfertilitySignature
+          - recipient.infertilityAgree
+          - recipient.infoAccurateTrue
+          - recipient.partnerInfoAccurateTrue
+          - recipient.publishToStories
+          - recipient.publishInfertilityNarrative
+          - recipient.userId
+          - recipient.isActive
+          - recipient.isArchive
+          - recipient.datetimeAcrhived
+          - recipient.sexual
+          - recipient.race
+          - recipient.religion
+          - recipient.eduction
+          - recipient.educationPartner
+          - recipient.locationa
+          - recipient.locationNotes
+          - recipient.racePartner
+          - recipient.region
+        from:
+          - { table: DonationApplicationBundle:EmbRecipient, alias: recipient }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      fullName:
+        label: Full name
+      address:
+        label: Address
+      city:
+        label: City
+      state:
+        label: State
+      postCode:
+        label: Postal Code
+      country:
+        label: Country
+      email:
+        label: Email Address
+      cellPhone:
+        label: Cell Phone
+      workPhone:
+        label: Work Phone
+      homePhone:
+        label: Home Phone
+      videoConferencing:
+        label: Video Conferencing?
+      videoConferencingProvider:
+        label: Video Conferencing Provider?
+      videoConferencingUserName:
+        label: Video Conferencing User Name?
+      emailContactOk:
+        label: Ok to contact by Email?
+      cellPhoneContactOk:
+        label: Ok to contact by Cell phone?
+      workPhoneContactOk:
+        label: Ok to contact by Work Phone?
+      homePhoneContactOk:
+        label: OK to contact by Home Phone?
+      maritalStatus:
+        label: Marital Status
+      birthDate:
+        label: Birthdate
+        frontend_type: date
+      currentAge:
+        label: Current Age
+        frontend_type: integer
+      heightFt:
+        label: Height Feet
+        frontend_type: integer
+      heightIn:
+        label: Height Inches
+        frontend_type: integer
+      weightLbs:
+        label: Weight (LBS)
+      bmiCalculation:
+        label: BMI Calculation
+      raceEthnicBackground:
+        label: Race / Ethnic Background
+      currentReligion:
+        label: Current Religion
+      currentHealthProblems:
+        label: Current Health Problems
+      currentMedications:
+        label: Current Medications
+      cigaretteSmoker:
+        label: Is Cigarette Smoker?
+      partnerFullName:
+        label: Partner Full Name
+      partnerEmail:
+        label: Partner Email
+      partnerCellPhone:
+        label: Partner Cell Phone
+      partnerWorkPhone:
+        label: Partner Work Phone
+      partnerHomePhone:
+        label: Partner Home Phone
+      partnerVideoConferencing:
+        label: Partner Video Conferencing?
+      partnerVideoConferencingProvider:
+        label: Partner Video Conferencing Provider?
+      partnerVideoConferencingUserName:
+        label: Partner Video Conferencing User Name
+      partnerEmailContactOk:
+        label: OK to contact partner by email?
+      partnerCellPhoneContactOk:
+        label: OK to contact partner by cell phone?
+      partnerHomePhoneContactOk:
+        label: OK to contact partner by home phone?
+      partnerWorkPhoneContactOk:
+        label: OK to contact partner by work phone?
+      partnerBirthDate:
+        label: Partner Birthdate
+        frontend_type: date
+      partnerCurrentAge:
+        label: Partner current age
+      partnerHeightFt:
+        label: Partner Height Feet
+      partnerHeightIn:
+        label: Partner Height Inches
+      partnerWeightLbs:
+        label: Partner Weight (LBS)
+      partnerBmiCalculation:
+        label: Partner BMI Calculation
+      partnerRaceEthnicBackground:
+        label: Partner Race / Ethnic Background
+      partnerCurrentReligion:
+        label: Partner Current Religion
+      partnerCurrentHealthProblems:
+        label: Partner Current Health Problems
+      partnerCurrentMedications:
+        label: Partner Current Medications
+      partnerCigaretteSmoker:
+        label: Is Partner Current Smoker?
+      totalInfertilityYears:
+        label: Total Infertility in Years
+      infertilityNarrative:
+        label: Infertility Narrative
+      gynaecologicSurgeries:
+        label: Gynaecologic Surgeries
+      hsgPerformed:
+        label: HSG Performed?
+      hsgDetails:
+        label: HSG Details
+      fallopianTubes:
+        label: Fallopian Tubes
+      uterineCavityEvaluation:
+        label: Uternine Cavity Evaluation
+      uterineCavitySurgery:
+        label: Uterine Cavity Surgery
+      numPregnancies:
+        label: Number of Pregnancies
+        frontend_type: integer
+      numTermDeliveries:
+        label: Number of Term Deliveries
+        frontend_type: integer
+      numPretermDeliveries:
+        label: Number of Preterm Deliveries
+        frontend_type: integer
+      numSpontaneousLosses:
+        label: Number of Spontaineous Losses
+        frontend_type: integer
+      spontaneousLossesEval:
+        label: Spontaneous Losses Evaluation
+      numElectiveTerminations:
+        label: Number of Elective Terminations
+        frontend_type: integer
+      numLivingChildren:
+        label: Number of Living Children
+        frontend_type: integer
+      numLivingChildrenWithCurrentPartner:
+        label: Number of Living Children with Current Partner
+        frontend_type: integer
+      numLivingChildrenWithOtherPartners:
+        label: Number of Living Children with Current Partners
+        frontend_type: integer
+      numAdoptedChildren:
+        label: Number of Adopted Children
+        frontend_type: integer
+      partnerNumLivingChildrenWithOtherPartners:
+        label: Partner's number of living children with other partners
+        frontend_type: integer
+      partnerNumAdoptedChildren:
+        label: Partner's number of adpoted children
+        frontend_type: integer
+      signedName:
+        label: Signed Name
+      signedDate:
+        label: Signed Date
+        frontend_type: date
+      partnerSignedName:
+        label: Partner Signed Name
+      partnerSignedDate:
+        label: Partner Signed Date
+        fronend_type: date
+      recipientNotes:
+        label: Recipient Notes
+      medicalStaffComments:
+        label: Medical Staff Comments
+      medicalStatus:
+        label: Medical Status
+      medicalStatusUpdateDate:
+        label: Medical Status Update Date
+        frontend_type: date
+      medicalNameOfPersonUpdating:
+        label: Medica Name of Person Updating
+      medicalApprovalDate:
+        label: Medical Approval Date
+        frontend_type: date
+      medicalRanking:
+        label: Medical Ranking
+      medicalDirectorComments:
+        label: Medical Director Comments
+      weightingIndex:
+        label: Weighting Index
+      category:
+        label: Category
+      mhpRecipientOption:
+        label: MHP Recipient Option
+      approved:
+        label: Approved
+      drReviewDatetime:
+        label: Dr Review Date Time
+        frontend_type: date
+      createdAt:
+        label: Created At
+        frontend_type: date
+      updatedAt:
+        label: Updated At
+        frontend_type: date
+      deletedAt:
+        label: Deleted At
+        frontend_type: date
+      infertilitySignature:
+        label: Infertility Signature
+      partnerInfertilitySignature:
+        label: Partner Infertiltity Signature
+      infertilityAgree:
+        label: Infertiltity Agreement
+      infoAccurateTrue:
+        label: This information is accurate and true
+      partnerInfoAccurateTrue:
+        label: Partner information is accurate and true
+      publishToStories:
+        label: Can publish to Stories?
+      publishInfertilityNarrative:
+        label: Can publish Infertility Narrative
+      userId:
+        label: User ID
+      isActive:
+        label: Is Active
+      isArchive:
+        label: Is Archive
+      datetimeAcrhived:
+        label: Date Archived
+        frontend_type: date
+      sexual:
+        label: Sexual orientation
+      race:
+        label: Race
+      religion:
+        label: Religion
+      eduction:
+        label: Education level
+      educationPartner:
+        label: Partner education level
+      locationa:
+        label: Location
+      locationNotes:
+        label: Location Notes
+      racePartner:
+        label: Partner's race
+      region:
+        label: Region
+    properties:
+      id: ~
+      update_link_recipient:
+        type: url
+        route: donation.application_recipient_update
+        params:
+          - id
+      view_link_recipient:
+        type: url
+        route: donation.application_recipient_view
+        params:
+          - id
+      delete_link_recipient:
+        type: url
+        route: donation_api_delete_application_recipient
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: recipient.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: recipient.id
+    options:
+      entityHint: edi.donationapplication.embrecipient.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_recipient
+        icon: eye-open
+        acl_resource: donation.application_recipient_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_recipient
+        icon: edit
+        acl_resource: donation.application_recipient_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_recipient
+        icon: trash
+        acl_resource: donation.application_recipient_delete
+    entity_label: Embryo Donation Recipient
+    entity_plural_label: Embryo Donation Recipients
+  donation-application-stipulation-grid:
+    source:
+      acl_resource: donation.application_stipulation_view
+      type: orm
+      query:
+        select:
+          - stipulation.id
+          - stipulation.applicationId
+          - stipulation.stipulationType
+          - stipulation.stipulation
+          - stipulation.datetimeModified
+        from:
+          - { table: DonationApplicationBundle:EmbStipulation, alias: stipulation }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+        frontend_type: integer
+      stipulationType:
+        label: Stipulation Type
+      stipulation:
+        label: Stipulation
+      datetimeModified:
+        label: Date Modified
+        frontend_type: date
+    properties:
+      id: ~
+      update_link_stipulation:
+        type: url
+        route: donation.application_stipulation_update
+        params:
+          - id
+      view_link_stipulation:
+        type: url
+        route: donation.application_stipulation_view
+        params:
+          - id
+      delete_link_stipulation:
+        type: url
+        route: donation_api_delete_application_stipulation
+        params:
+          - id
+    sorters:
+      columns:
+        id:
+          data_name: stipulation.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: stipulation.id
+    options:
+      entityHint: edi.donationapplication.embstipulation.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_stipulation
+        icon: eye-open
+        acl_resource: donation.application_stipulation_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_stipulation
+        icon: edit
+        acl_resource: donation.application_stipulation_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_stipulation
+        icon: trash
+        acl_resource: donation.application_stipulation_delete
+    entity_label: Embryo Donation Application Stipulation
+    entity_plural_label: Embryo Donation Application Stipulations
+  donation-application-wife-edu-history-grid:
+    source:
+      acl_resource: donation.application_wifeeduhistory_view
+      type: orm
+      query:
+        select:
+          - wifeeduhistory.id
+          - wifeeduhistory.applicationId
+          - wifeeduhistory.highestEducationLevel
+          - wifeeduhistory.highSchoolGpa
+          - wifeeduhistory.collegeGpa
+          - wifeeduhistory.satActScores
+          - wifeeduhistory.iqScore
+          - wifeeduhistory.otherEducationalComments
+        from:
+          - { table: DonationApplicationBundle:EmbWifeEduHistory, alias: wifeeduhistory }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+        frontend_type: integer
+      highestEducationLevel:
+        label: Highest Education Level
+      highSchoolGpa:
+        label: Highschool GPA
+        frontend_type: float
+      collegeGpa:
+        label: College GPA
+        frontend_type: float
+      satActScores:
+        label: SAT / ACT Scores
+      iqScore:
+        label: IQ Score
+        frontend_type: integer
+      otherEducationalComments:
+        label: Other Educational Comments
+    properties:
+      id: ~
+      update_link_wifeeduhistory:
+        type: url
+        route: donation.application_wifeeduhistory_update
+        params:
+          - id
+      view_link_wifeeduhistory:
+        type: url
+        route: donation.application_wifeeduhistory_view
+        params:
+          - id
+      delete_link_wifeeduhistory:
+        type: url
+        route: donation_api_delete_application_wifeeduhistory
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: wifeeduhistory.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: wifeeduhistory.id
+    options:
+      entityHint: edi.donationapplication.embwifeeduhistory.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_wifeeduhistory
+        icon: eye-open
+        acl_resource: donation.application_wifeeduhistory_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_wifeeduhistory
+        icon: edit
+        acl_resource: donation.application_wifeeduhistory_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_wifeeduhistory
+        icon: trash
+        acl_resource: donation.application_wifeeduhistory_delete
+    entity_label: Embryo Donation Application Wife Education History
+    entity_plural_label: Embryo Donation Applications Wife Education Histories
+  donation-application-wifefamhist-grid:
+    source:
+      acl_resource: donation.application_wifefamhist_view
+      type: orm
+      query:
+        select:
+          - wifefamhist.id
+          - wifefamhist.applicationId
+          - wifefamhist.motherAlive
+          - wifefamhist.motherDeathAge
+          - wifefamhist.motherDeathCause
+          - wifefamhist.motherMedicalProblems
+          - wifefamhist.fatherAlive
+          - wifefamhist.fatherDeathAge
+          - wifefamhist.fatherDeathCause
+          - wifefamhist.fatherMedicalProblems
+          - wifefamhist.haveSisters
+          - wifefamhist.numSistersAndHealth
+          - wifefamhist.haveBrothers
+          - wifefamhist.numBrothersAndHealth
+          - wifefamhist.alcoholism
+          - wifefamhist.bloodDiseases
+          - wifefamhist.hearingDifficulties
+          - wifefamhist.malformations
+          - wifefamhist.spinalCranialProblems
+          - wifefamhist.chromosomeAbnormalities
+          - wifefamhist.colorBlindness
+          - wifefamhist.bornBlind
+          - wifefamhist.cysticFibrosis
+          - wifefamhist.bornDeaf
+          - wifefamhist.diabetes
+          - wifefamhist.epilepsy
+          - wifefamhist.glaucoma
+          - wifefamhist.highBloodPressure
+          - wifefamhist.mentalRetardation
+          - wifefamhist.muscularDystrophy
+          - wifefamhist.neurofibromatosis
+          - wifefamhist.prematureOrganDegeneration
+          - wifefamhist.psychiatricIllness
+          - wifefamhist.severeAllergies
+          - wifefamhist.sickleCellDisease
+          - wifefamhist.taySachDisease
+          - wifefamhist.transmissibleSpongiform
+          - wifefamhist.twoOrMoreMiscarriages
+          - wifefamhist.otherGeneticDiseases
+          - wifefamhist.explainYesAnswers
+        from:
+          - { table: DonationApplicationBundle:EmbWifeFamHist, alias: wifefamhist }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+      motherAlive:
+        label: Mother Alive?
+      motherDeathAge:
+        label: Mother Death Age
+      motherDeathCause:
+        label: Mother Cause of Death
+      motherMedicalProblems:
+        label: Mother Medical Problems
+      fatherAlive:
+        label: Father Alive?
+      fatherDeathAge:
+        label: Father Death Age
+      fatherDeathCause:
+        label: Father CAuse of Death
+      fatherMedicalProblems:
+        label: Father Medical Problems
+      haveSisters:
+        label: Have Sisters?
+      numSistersAndHealth:
+        label: Number of Sisters and Health
+      haveBrothers:
+        label: Have Brothers?
+      numBrothersAndHealth:
+        label: Number of Brothers and Health
+      alcoholism:
+        label: Alcoholism?
+      bloodDiseases:
+        label: Blood Diseases?
+      hearingDifficulties:
+        label: Hearing Difficulties?
+      malformations:
+        label: Malformations?
+      spinalCranialProblems:
+        label: Spinal / Crainial Problems?
+      chromosomeAbnormalities:
+        label: Chromosome Abnormalities?
+      colorBlindness:
+        label: Color Blindness?
+      bornBlind:
+        label: Born Blind?
+      cysticFibrosis:
+        label: Cystic Fibrosis?
+      bornDeaf:
+        label: Born Deaf?
+      diabetes:
+        label: Diabetes?
+      epilepsy:
+        label: Epilepsy?
+      glaucoma:
+        label: Glaucoma?
+      highBloodPressure:
+        label: High Blood Pressure?
+      mentalRetardation:
+        label: Mental Retardation?
+      muscularDystrophy:
+        label: Muscular Dystrophy?
+      neurofibromatosis:
+        label: Neurofibromatosis?
+      prematureOrganDegeneration:
+        label: Permature Organ Degeneration?
+      psychiatricIllness:
+        label: Pyschiatric Illness?
+      severeAllergies:
+        label: Severe Allergies?
+      sickleCellDisease:
+        label: Sickle Cell Disease?
+      taySachDisease:
+        label: Tay Sach Disease?
+      transmissibleSpongiform:
+        label: Transmissible Spongiform?
+      twoOrMoreMiscarriages:
+        label: Two or More Miscarriages?
+      otherGeneticDiseases:
+        label: Other Genetic Diseases?
+      explainYesAnswers:
+        label: Explain the Yes Answers
+    properties:
+      id: ~
+      update_link_wifefamhist:
+        type: url
+        route: donation.application_wifefamhist_update
+        params:
+          - id
+      view_link_wifefamhist:
+        type: url
+        route: donation.application_wifefamhist_view
+        params:
+          - id
+      delete_link_wifefamhist:
+        type: url
+        route: donation_api_delete_application_wifefamhist
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: wifefamhist.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: _wifefamhist.id
+    options:
+      entityHint: edi.donationapplication.embwifefamhist.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_wifefamhist
+        icon: eye-open
+        acl_resource: donation.application_wifefamhist_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_wifefamhist
+        icon: edit
+        acl_resource: donation.application_wifefamhist_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_wifefamhist
+        icon: trash
+        acl_resource: donation.application_wifefamhist_delete
+    entity_label: Embryo Donation Application Wife Family History
+    entity_plural_label: Embryo Donation Applications Wife Family Histories
+  donation-application-wifemedhist-grid:
+    source:
+      acl_resource: donation.application_wifemedhist_view
+      type: orm
+      query:
+        select:
+          - wifemedhist.id
+          - wifemedhist.applicationId
+          - wifemedhist.medicalProblems
+          - wifemedhist.medicalProblemsText
+          - wifemedhist.surgeries
+          - wifemedhist.surgeriesText
+          - wifemedhist.currentMedications
+          - wifemedhist.currentMedicationsText
+          - wifemedhist.allergies
+          - wifemedhist.allergiesText
+          - wifemedhist.smoker
+          - wifemedhist.smokerWillingToQuit
+          - wifemedhist.smokerHowMuch
+          - wifemedhist.alcoholUse
+          - wifemedhist.alcoholUseText
+          - wifemedhist.glassesContacts
+          - wifemedhist.hearingProblems
+          - wifemedhist.hearingProblemsSeverity
+          - wifemedhist.dentalProblems
+          - wifemedhist.dentalProblemsSeverity
+          - wifemedhist.dietRestrictions
+          - wifemedhist.dietRestrictionsText
+          - wifemedhist.bloodType
+          - wifemedhist.historyInfertility
+          - wifemedhist.historyInfertilityText
+        from:
+          - { table: DonationApplicationBundle:EmbWifeMedHist, alias: wifemedhist }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+        frontend_type: integer
+      medicalProblems:
+        label: Medical Problems
+      medicalProblemsText:
+        label: Medical Problems Text
+      surgeries:
+        label: Surgeries
+      surgeriesText:
+        label: Surgeries Text
+      currentMedications:
+        label: Current Medications
+      currentMedicationsText:
+        label: Current Medications Text
+      allergies:
+        label: Allergies
+      allergiesText:
+        label: Allergies Text
+      smoker:
+        label: Smoker
+      smokerWillingToQuit:
+        label: Smoker willing to quite
+      smokerHowMuch:
+        label: Smoker how much
+      alcoholUse:
+        label: Alcohol Use
+      alcoholUseText:
+        label: Alcohol Text
+      glassesContacts:
+        label: Glasses / Contacts
+      hearingProblems:
+        label: Hearing Problems
+      hearingProblemsSeverity:
+        label: Hearing Problems Severity
+      dentalProblems:
+        label: Dental Problems
+      dentalProblemsSeverity:
+        label: Dental Problems Severity
+      dietRestrictions:
+        label: Diet Restrictions
+      dietRestrictionsText:
+        label: Diet Restrictions Text
+      bloodType:
+        label: Blood Type
+      historyInfertility:
+        label: History Infertility
+      historyInfertilityText:
+        label: History Infertility Text
+    properties:
+      id: ~
+      update_link_wifemedhist:
+        type: url
+        route: donation.application_wifemedhist_update
+        params:
+          - id
+      view_link_wifemedhist:
+        type: url
+        route: donation.application_wifemedhist_view
+        params:
+          - id
+      delete_link_wifemedhist:
+        type: url
+        route: donation_api_delete_application_wifemedhist
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: wifemedhist.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: wifemedhist.id
+    options:
+      entityHint: edi.donationapplication.embwifemedhist.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_wifemedhist
+        icon: eye-open
+        acl_resource: donation.application_wifemedhist_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_wifemedhist
+        icon: edit
+        acl_resource: donation.application_wifemedhist_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_wifemedhist
+        icon: trash
+        acl_resource: donation.application_wifemedhist_delete
+    entity_label: Embryo Donation Application Wife Medical History
+    entity_plural_label: Embryo Donation Applications Wife Medical Histories
+  donation-application-wifeoghist-grid:
+    source:
+      acl_resource: donation.application_wifeoghist_view
+      type: orm
+      query:
+        select:
+          - wifeoghist.id
+          - wifeoghist.applicationId
+          - wifeoghist.numPregnancies
+          - wifeoghist.numTermDeliveries
+          - wifeoghist.numPrematureDeliveries
+          - wifeoghist.numElectiveTerminations
+          - wifeoghist.numSpontaneousLosses
+          - wifeoghist.numLivingChildren
+          - wifeoghist.offspringProblems
+          - wifeoghist.offspringProblemsText
+        from:
+          - { table: DonationApplicationBundle:EmbWifeMedHist, alias: wifeoghist }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+        frontend_type: integer
+      numPregnancies:
+        label: Number of Pregnancies
+        frontend_type: integer
+      numTermDeliveries:
+        label: Number of Term Deliveries
+        frontend_type: integer
+      numPrematureDeliveries:
+        label: Number of Permature Deliveries
+        frontend_type: integer
+      numElectiveTerminations:
+        label: Number of Elective Terminations
+        frontend_type: integer
+      numSpontaneousLosses:
+        label: Number of Spontaneous Losses
+        frontend_type: integer
+      numLivingChildren:
+        label: Number of Living Children
+        frontend_type: integer
+      offspringProblems:
+        label: Offspring Problems
+      offspringProblemsText:
+        label: Offspring Problems Text
+    properties:
+      id: ~
+      update_link_wifeoghist:
+        type: url
+        route: donation.application_wifeoghist_update
+        params:
+          - id
+      view_link_wifeoghist:
+        type: url
+        route: donation.application_wifeoghist_view
+        params:
+          - id
+      delete_link_wifeoghist:
+        type: url
+        route: donation_api_delete_application_wifeoghist
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: wifeoghist.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: wifeoghist.id
+    options:
+      entityHint: edi.donationapplication.embwifeoghist.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_wifeoghist
+        icon: eye-open
+        acl_resource: donation.application_wifeoghist_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_wifeoghist
+        icon: edit
+        acl_resource: donation.application_wifeoghist_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_wifeoghist
+        icon: trash
+        acl_resource: donation.application_wifeoghist_delete
+    entity_label: Embryo Donation Application Wife Obstetrical/Gynecologic History
+    entity_plural_label: Embryo Donation Applications Wife Obstetrical/Gynecologic Histories
+  donation-application-wifephyschar-grid:
+    source:
+      acl_resource: donation.application_wifephyschar_view
+      type: orm
+      query:
+        select:
+          - wifephyschar.id
+          - wifephyschar.applicationId
+          - wifephyschar.dateOfBirth
+          - wifephyschar.ethnicOrigin
+          - wifephyschar.race
+          - wifephyschar.skinTone
+          - wifephyschar.boneStructure
+          - wifephyschar.eyeColor
+          - wifephyschar.hairColor
+          - wifephyschar.hairTexture
+          - wifephyschar.hairStructure
+          - wifephyschar.heightFt
+          - wifephyschar.heightIn
+          - wifephyschar.weightLbs
+        from:
+          - { table: DonationApplicationBundle:EmbWifePhysChar, alias: wifephyschar }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+        frontend_type: integer
+      dateOfBirth:
+        label: Date of Birth
+        frontend_type: date
+      ethnicOrigin:
+        label: Ethnic Origin
+      race:
+        label: Race
+      skinTone:
+        label: Skin Tone
+      boneStructure:
+        label: Bone Structure
+      eyeColor:
+        label: Eye Color
+      hairColor:
+        label: Hair Color
+      hairTexture:
+        label: Hair Texture
+      hairStructure:
+        label: Hair Structure
+      heightFt:
+        label: Height Feet
+        frontend_type: integer
+      heightIn:
+        label: Height Inches
+        frontend_type: integer
+      weightLbs:
+        label: Weight (LBS)
+        frontend_type: integer
+    properties:
+      id: ~
+      update_link_wifephyschar:
+        type: url
+        route: donation.application_wifephyschar_update
+        params:
+          - id
+      view_link_wifephyschar:
+        type: url
+        route: donation.application_wifephyschar_view
+        params:
+          - id
+      delete_link_wifephyschar:
+        type: url
+        route: donation_api_delete_application_wifephyschar
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: wifephyschar.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: wifephyschar.id
+    options:
+      entityHint: edi.donationapplication.embwifephyschar.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_wifephyschar
+        icon: eye-open
+        acl_resource: donation.application_wifephyschar_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_wifephyschar
+        icon: edit
+        acl_resource: donation.application_wifephyschar_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_wifephyschar
+        icon: trash
+        acl_resource: donation.application_wifephyschar_delete
+    entity_label: Embryo Donation Application Wife Physical Characteristic
+    entity_plural_label: Embryo Donation Applications Wife Physical Characteristics
+  donation-application-wifesocialhistory-grid:
+    source:
+      acl_resource: donation.application_wifesocialhistory_view
+      type: orm
+      query:
+        select:
+          - wifesocialhistory.id
+          - wifesocialhistory.applicationId
+          - wifesocialhistory.religion
+          - wifesocialhistory.birthPlace
+          - wifesocialhistory.occupation
+          - wifesocialhistory.hobbiesInterests
+        from:
+          - { table: DonationApplicationBundle:EmbWifeSocialHistory, alias: wifesocialhistory }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      applicationId:
+        label: Application ID
+        frontend_type: integer
+      religion:
+        label: Religion
+      birthPlace:
+        label: Birth Place
+      occupation:
+        label: Occupation
+      hobbiesInterests:
+        label: Hobbies / Interests
+    properties:
+      label: ID
+      id: ~
+      update_link_wifesocialhistory:
+        type: url
+        route: donation.application_wifesocialhistory_update
+        params:
+          - id
+      view_link_wifesocialhistory:
+        type: url
+        route: donation.application_wifesocialhistory_view
+        params:
+          - id
+      delete_link_wifesocialhistory:
+        type: url
+        route: donation_api_delete_application_wifesocialhistory
+        params:
+          - id
+    sorters:
+      columns:
+        embNumber:
+          data_name: wifesocialhistory.id
+      default:
+        embNumber: DESC
+    filters:
+      columns:
+        embNumber:
+          type: number
+          data_name: wifesocialhistory.id
+    options:
+      entityHint: edi.donationapplication.embwifesocialhistory.entity_plural_label
+    actions:
+      view:
+        type: navigate
+        label: View
+        link: view_link_wifesocialhistory
+        icon: eye-open
+        acl_resource: donation.application_wifesocialhistory_view
+        rowAction: true
+      update:
+        type: navigate
+        label: Update
+        link: update_link_wifesocialhistory
+        icon: edit
+        acl_resource: donation.application_wifesocialhistory_update
+      delete:
+        type: delete
+        label: Delete
+        link: delete_link_wifesocialhistory
+        icon: trash
+        acl_resource: donation.application_wifesocialhistory_delete
+    entity_label: Embryo Donation Application Wife Social History
+    entity_plural_label: Embryo Donation Applications Wife Social History
+  app-tasks-grid:
+    # ...
+    properties:
+      id: ~
+      update_link:
+        type: url
+        route: app_task_update
+        params:
+          - id
+      # ...
+    actions:
+      # ...
+      edit:
+        type: navigate
+        label: Edit
+        link: update_link
+        icon: edit

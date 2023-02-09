@@ -1,0 +1,17 @@
+layout:
+  actions:
+    - '@setBlockTheme':
+        themes: ['donation_essay_signature.html.twig','../edi_forms/nav_buttons.html.twig']
+    - '@add':
+        id: donation_essay_signature_info
+        parentId: page_content
+        siblingId: page_content_title
+        blockType: form_fields
+        options:
+          form: '=data["donation_essay_signature_form"]'
+    - '@add':
+        id: nav_buttons
+        parentId: donation_essay_signature_info
+        blockType: form_fields
+        options:
+          form: '=data["donation_essay_signature_form"]'

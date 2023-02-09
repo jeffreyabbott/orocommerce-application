@@ -1,0 +1,33 @@
+# Read the documentation: https://github.com/1up-lab/OneupFlysystemBundle/blob/release/3.x/Resources/doc/index.md
+oneup_flysystem:
+    cache:
+        psr6_app_cache:
+            psr6:
+                service: cache.flysystem.psr6
+    adapters:
+#        public_uploads_adapter:
+        uploads_adapter:
+#            local:
+#                directory: '%kernel.project_dir%/public/%uploads_dir_name%'
+            awss3v3:
+                client: Aws\S3\S3Client
+                bucket: '%env(AWS_S3_ACCESS_BUCKET)%'
+#       private_uploads_adapter:
+#            local:
+#                directory: '%kernel.project_dir%/var/uploads'
+#            awss3v3:
+#                client: Aws\S3\S3Client
+#                bucket: '%env(AWS_S3_ACCESS_BUCKET)%'
+    filesystems:
+#        public_uploads_filesystem:
+        uploads_filesystem:
+            #adapter: public_uploads_adapter
+            adapter: uploads_adapter
+            alias: League\Flysystem\Filesystem
+        cached_uploads_filesystem:
+            adapter: uploads_adapter
+            cache: psr6_app_cache
+
+#        private_uploads_filesystem:
+#            adapter: private_uploads_adapter
+#            alias: League\Flysystem\Filesystem

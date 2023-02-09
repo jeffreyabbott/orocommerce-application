@@ -83,6 +83,7 @@ oro_message_queue:
         '%message_queue_transport%': '%message_queue_transport_config%'
 
 oro_layout:
+    active_theme: first
     enabled_themes:
         - blank
         - default

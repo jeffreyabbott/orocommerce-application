@@ -1,0 +1,4 @@
+layout:
+    actions:
+        - '@setFormTheme':
+            themes: 'emb_application_form.html.twig'
